@@ -3,3 +3,5 @@
 ## emacs
 ## zsh
 ## dwm
+## gitconfig
+## synergy
