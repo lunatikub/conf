@@ -1,0 +1,21 @@
+[user]
+	name = Thomas Joly
+	email = thomas.joly@qosmos.fr
+[branch]
+	autosetuprebase = always
+[color]
+	branch = auto
+	diff = auto
+	interactive = auto
+	status = auto
+[alias]
+     ll = log --date=iso --pretty=format:'%C(yellow)%h%Creset - %Cred%an, %ad%Creset - %cn, %cd : %Cgreen%s%Creset'
+     l5 = log -5 --date=iso --pretty=format:'%C(yellow)%h%Creset - %Cred%an, %ad%Creset - %cn, %cd : %Cgreen%s%Creset'
+     l10 = log -10 --date=iso --pretty=format:'%C(yellow)%h%Creset - %Cred%an, %ad%Creset - %cn, %cd : %Cgreen%s%Creset'
+     amend = commit --amend
+     st = status
+     pr = pull --rebase
+     ci = commit
+     po = push origin
+     br = branch
+     co = checkout
