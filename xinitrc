@@ -26,5 +26,7 @@ done &
 
 xmodmap ~/.xmodmaprc
 
+#synergys -f --config ~/.synergy.conf --daemon
+
 exec ssh-agent dwm
 #exec dwm
