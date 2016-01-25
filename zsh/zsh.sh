@@ -14,3 +14,4 @@ source ${ROOT_DIR}/alias.sh
 source ${ROOT_DIR}/functions.sh
 source ${ROOT_DIR}/history.sh
 source ${ROOT_DIR}/git.sh
+source ${ROOT_DIR}/completion.sh

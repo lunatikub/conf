@@ -1,0 +1,13 @@
+xterm*background:       black
+xterm*foreground:       grey
+xterm*scrollBar:        false
+xterm*leftScrollBar:    false
+xterm*rightScrollBar:   false
+xterm*font: -*-terminus-medium-r-normal--18-*-*-*-*-*-*
+xterm*on2Clicks:  regex [^/@ \n]+
+xterm*on3Clicks:  regex [^ \n]+
+xterm*on4Clicks:  regex [^#$]+
+xterm*on5Clicks:  line
+XTerm*VT100.cutNewLine: false
+XTerm*VT100.cutToBeginningOfLine: false
+XTerm*VT100.charClass: 33:48,35:48,37:48,42:48,45-47:48,64:48,95:48,126:48
