@@ -1,0 +1,97 @@
+###
+LINUX
+###
+
+# clean swap
+
+swapoff –a
+swapon –a
+free && sync && echo 3 > /proc/sys/vm/drop_caches && free
+
+###
+GIT
+###
+
+### REF/DEVS
+...
+git branch <name>
+git checkout <name>
+git add <files>
+git commit -m "....
+git push <<<<<-n>>>>>> origin HEAD:refs/devel/joly/p_1_17_pdata_v2 (dry run)
+
+
+
+
+### Fetch all branches
+
+git fetch origin refs/devel/\*:refs/devel/\*
+
+
+
+
+### merge commits
+
+git add
+git commit -m "osef"
+git rebase -i HEAD~<n>
+
+
+
+###COVERITY
+
+git commit -m "NCID13374 NCID13375 pdata leak at open_pdd function"
+
+
+
+
+### CONFLICT AFTER REBASE
+
+git add
+git commit
+git pull --rebase
+--> CONFLICT
+emacs file_conflicted
+--> CONFLICT RESOLVED
+git add file_conflicted
+git rebase --continue
+git push ....
+
+
+
+find . -name "*.c" -exec git blame {} \;  >/tmp/a; sed "s/[^(]* (\([^)]*\)) .*/\1/" /tmp/a | awk '{print $1 " " $2}' | sed "s/[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]//" | sort | uniq -c | sort -nr
+
+
+NEW BRANCH
+
+edit version.mk
+git push origin HEAD:new_br
+
+git branch --set-upstream-to=origin/p_1
+git fetch origin +refs/devel/*:refs/devel/*
+git rebase --onto refs/devel/selva/rtc30431_ssl_rebased_p_1
+
+
+
+## rebase une branche specifique sur une branche pas specifique
+git fetch origin
+git rebase origin/p_1
+
+####
+NIX
+####
+
+source ~/.nix-profile/etc/profile.d/nix.sh
+
+~/.nix-profile
+
+UPDATE
+source ~/.nix-profile/etc/profile.d/nix.sh
+./nix-channel --update
+./nix-env -u
+
+INSTALL
+./nix-env -i
+
+SEARCH
+./nix-env -qa
