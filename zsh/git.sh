@@ -1,20 +1,13 @@
 
-gpush () {
-    br=refs/devel/$3
+gpush() {
+    }
 
-    git fetch origin +refs/devel/\*:refs/devel/\*
-
-    for ci in $(git log --pretty=format:'%h' $br --reverse --not origin/p_1)
+gcherry () {
+    br=$1
+    for ci in $(git  log --pretty=format:'%h' $br --not origin/p_1 --reverse)
     do
         git cherry-pick $ci
-        [ $? -ne 0 ] && return
     done
-
-    git pull --rebase
-    [ $? -ne 0 ] && return
-
-    git push origin p_1
-    [ $? -ne 0 ] && return
 }
 
 greview () {

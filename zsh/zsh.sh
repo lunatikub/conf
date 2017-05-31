@@ -2,10 +2,12 @@
 
 ROOT_DIR=$(dirname $(readlink -f $0))
 
+export EDITOR="~/.nix-profile/bin/emacs -Q -q -l /work/emacs/quick/quick.el"
+
 export TZ=Europe/Paris
 export LISP=/usr/local/bin/clisp
 
-export CCACHE_DIR="/dev/shm"
+export CCACHE_DIR="/dev/shm/ccache"
 ccache --max-size=8G >/dev/null 2>/dev/null
 
 source ${ROOT_DIR}/prompt.sh
