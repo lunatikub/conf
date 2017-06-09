@@ -1,6 +1,32 @@
+
+###
+# UBUNTU #
+###
+
+change run level
+   ┌─────────┬───────────────────┐
+   │Runlevel │ Target            │
+   ├─────────┼───────────────────┤
+   │0        │ poweroff.target   │
+   ├─────────┼───────────────────┤
+   │1        │ rescue.target     │
+   ├─────────┼───────────────────┤
+   │2, 3, 4  │ multi-user.target │
+   ├─────────┼───────────────────┤
+   │5        │ graphical.target  │
+   ├─────────┼───────────────────┤
+   │6        │ reboot.target     │
+   └─────────┴───────────────────┘
+
+sudo systemctl set-default multi-user.target
+
 ###
 LINUX
 ###
+
+# have 2 independant screens
+
+xrandr --output eDP1 --mode 1920x1080 --output DP2 --mode 1920x1080 --right-of eDP1
 
 # clean swap
 
@@ -95,3 +121,23 @@ INSTALL
 
 SEARCH
 ./nix-env -qa
+
+###
+# Docker #
+###
+
+sudo service docker start/restart/stop
+
+sudo docker pull ubuntu
+sudo docker run -i -t debian /bin/bash
+
+df -T // detect filesystem type
+
+docker ps -a
+docker ps -a -q
+
+docker stop $(docker ps -a -q)
+docker rm $(docker ps -a -q)
+docker attach [name]
+
+docker run -it --name scality -e SCALITY_AUTH_FILE='/etc/scality_credential' ubuntu

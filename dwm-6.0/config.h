@@ -1,7 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const char font[]            = "-*-terminus-*-r-*-*-12-*-*-*-*-*-*-*";
+static const char font[]            = "-*-terminus-*-r-*-*-18-*-*-*-*-*-*-*";
 static const char normbordercolor[] = "#444444";
 static const char normbgcolor[]     = "#222222";
 static const char normfgcolor[]     = "#bbbbbb";
@@ -48,14 +48,14 @@ static const Layout layouts[] = {
 /* commands */
 static const char *dmenucmd[] = { "dmenu_run", "-fn", font, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
 
-static char *termcmd[]  = { "uxterm", NULL };
+static char *termcmd[]  = { "xterm", "-fa", "'Monospace'", "-fs", "12", "-bg", "black", "-fg", "white" }; //xterm -fa 'Monospace' -fs 14
 
-static const char *lock[] = { "slock",  NULL };
+/* static const char *lock[] = { "slock",  NULL }; */
 
-static const char *alsa_up[] = { "/work/tools/manage_alsa.sh", "up", NULL };
-static const char *alsa_down[] = { "/work/tools/manage_alsa.sh", "down", NULL };
+/* static const char *alsa_up[] = { "/work/tools/manage_alsa.sh", "up", NULL }; */
+/* static const char *alsa_down[] = { "/work/tools/manage_alsa.sh", "down", NULL }; */
 
-static const char *killall_sbcl[] = { "/usr/bin/killall", "sbcl", NULL };
+/* static const char *killall_sbcl[] = { "/usr/bin/killall", "sbcl", NULL }; */
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -94,10 +94,10 @@ static Key keys[] = {
 	{ MODKEY,                       XK_period,       focusmon,    {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,        tagmon,         {.i = -1 } },
         { MODKEY|ShiftMask,             XK_period,       tagmon,         {.i = +1 } },
-        { 0,                            0xffc6,      spawn,          { .v = alsa_down }},
-        { 0,                            0xffc7,      spawn,          { .v = alsa_up }},
-        { 0,                            0xffc9,      spawn,          { .v = lock }},
-        { 0,                            0xffc3,      spawn,          { .v = killall_sbcl }},
+        /* { 0,                            0xffc6,      spawn,          { .v = alsa_down }}, */
+        /* { 0,                            0xffc7,      spawn,          { .v = alsa_up }}, */
+        /* { 0,                            0xffc9,      spawn,          { .v = lock }}, */
+        /* { 0,                            0xffc3,      spawn,          { .v = killall_sbcl }}, */
         { MODKEY,                       XK_s,        view_next_auto, { .i = +1 }},
         { MODKEY,                       XK_p,        view_next_auto, { .i = -1 }},
 };

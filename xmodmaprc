@@ -1,13 +1,7 @@
-xterm*background:       black
-xterm*foreground:       grey
-xterm*scrollBar:        false
-xterm*leftScrollBar:    false
-xterm*rightScrollBar:   false
-xterm*font:             -*-terminus-medium-r-*-*-16-*-*-*-*-*-*-*
-xterm*on2Clicks:  regex [^/@ \n]+
-xterm*on3Clicks:  regex [^ \n]+
-xterm*on4Clicks:  regex [^#$]+
-xterm*on5Clicks:  line
-XTerm*VT100.cutNewLine: false
-XTerm*VT100.cutToBeginningOfLine: false
-XTerm*VT100.charClass: 33:48,35:48,37:48,42:48,45-47:48,64:48,95:48,126:48
+keycode 26 = e E eacute
+keycode 40 = d D egrave
+keycode 27 = r R ecircumflex
+keycode 38 = a A agrave
+keycode 24 = q Q acircumflex
+keycode 30 = u U ugrave
+keycode 54 = c C ccedilla

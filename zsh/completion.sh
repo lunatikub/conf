@@ -1,9 +1,3 @@
-#perso completion
-for i in $(ls /work/zsh/completion/*.sh)
-do
-    source $i
-done
-
 # compsys initialization
 autoload -U compinit
 compinit

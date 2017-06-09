@@ -19,7 +19,7 @@ alias cdw='cd /work/'
 # NIX
 alias chrome='~/.nix-profile/bin/chromium --proxy-auto-detect'
 alias meld='~/.nix-profile/bin/meld'
-alias 'e=~/.nix-profile/bin/emacs -Q -q -l /work/emacs/quick/quick.el'
+alias 'e=emacs'
 
 # NREG
 alias remote_nreg='/comptes/joly/public/remote_nreg_client.sh'

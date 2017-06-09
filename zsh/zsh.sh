@@ -2,7 +2,7 @@
 
 ROOT_DIR=$(dirname $(readlink -f $0))
 
-export EDITOR="~/.nix-profile/bin/emacs -Q -q -l /work/emacs/quick/quick.el"
+export EDITOR="emacs -Q -q -l /work/emacs/quick/quick.el"
 
 export TZ=Europe/Paris
 export LISP=/usr/local/bin/clisp
