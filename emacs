@@ -1,8 +1,3 @@
-;; Autocompletion
-;; (add-to-list 'load-path "/work/emacs/auto/")
-;; (require 'auto-complete-config)
-;; (add-to-list 'ac-dictionary-directories "/work/emacs/auto/ac-dict")
-;; (ac-config-default)
 
 (when (display-graphic-p)
   (progn
@@ -163,9 +158,10 @@
       (insert "#include \"" name "\"\n\n")))
 
 (require 'cc-mode)
+
 (add-to-list 'c-style-alist
              '("tj"
-               (c-basic-offset . 4)
+               (c-basic-offset . 2)
                (c-comment-only-line-offset . 0)
                (c-hanging-braces-alist     . ((substatement-open before after)))
                (c-offsets-alist . ((topmost-intro        . 0)
@@ -183,6 +179,7 @@
 (setq whitespace-style '(face lines-tail))
 
 (add-hook 'prog-mode-hook 'whitespace-mode)
+
 ;; END C MODE
 
 ;; BINDINGS :: C
@@ -318,28 +315,27 @@
 
 ;; HOOKS
 
-; Delete trailing whitespaces on save
-(add-hook 'write-file-hooks 'delete-trailing-whitespace)
-                                        ; '(ido-ignore-buffers (quote ("*Gnus*")))
-                                        ; '(ido-ignore-buffers (quote ("*Mail*")))
-                                        ; Auto insert C/C++ header guard
-
-(add-hook 'find-file-hooks
+;; Delete trailing whitespaces on save (just for c file)
+(add-hook 'c-mode-hook
           (lambda ()
-            (when (and (memq major-mode '(c-mode c++-mode))
-                       (equal (point-min) (point-max))
-                       (string-match ".*\\.hh?"
-                                     (buffer-file-name)))
-              (insert-header-guard)
-              (goto-line 3)
-              (insert "\n"))))
+            (add-hook 'write-file-hooks 'delete-trailing-whitespace)))
 
-(add-hook 'find-file-hooks
-          (lambda ()
-              (when (and (memq major-mode '(c-mode c++-mode))
-                         (equal (point-min) (point-max))
-                         (string-match ".*\\.cc?" (buffer-file-name)))
-                (insert-header-inclusion))))
+;; (add-hook 'find-file-hooks
+;;           (lambda ()
+;;             (when (and (memq major-mode '(c-mode c++-mode))
+;;                        (equal (point-min) (point-max))
+;;                        (string-match ".*\\.hh?"
+;;                                      (buffer-file-name)))
+;;               (insert-header-guard)
+;;               (goto-line 3)
+;;               (insert "\n"))))
+
+;; (add-hook 'find-file-hooks
+;;           (lambda ()
+;;               (when (and (memq major-mode '(c-mode c++-mode))
+;;                          (equal (point-min) (point-max))
+;;                          (string-match ".*\\.cc?" (buffer-file-name)))
+;;                 (insert-header-inclusion))))
 
 (add-hook 'sh-mode-hook
 	    (lambda ()
@@ -353,14 +349,7 @@
 
 
 ;; file extensions
-(add-to-list 'auto-mode-alist '("\\.proto" . lisp-mode))
-(add-to-list 'auto-mode-alist '("\\.sed$" . sh-mode))
-(add-to-list 'auto-mode-alist '("\\.pdd$" . javascript-mode))
-(add-to-list 'auto-mode-alist '("\\.pdm$" . javascript-mode))
-(add-to-list 'auto-mode-alist '("\\.sem$" . javascript-mode))
-(add-to-list 'auto-mode-alist '("\\.standalone$" . makefile-mode))
-(add-to-list 'auto-mode-alist '("\\.junos$" . makefile-mode))
-(add-to-list 'auto-mode-alist '("\\.junos.v5$" . makefile-mode))
+;;(add-to-list 'auto-mode-alist '("\\.sed$" . sh-mode))
 
 (defadvice find-tag (around refresh-etags activate)
   "Rerun etags and reload tags if tag not found and redo find-tag.
@@ -374,3 +363,32 @@
                   (save-buffer))
              (er-refresh-etags extension)
              ad-do-it))))
+
+;; font
+
+(defconst default-font-size 120)
+
+(defun set-font-size (&optional size)
+  "Set the font size to SIZE (default: default-font-size)."
+  (interactive "nSize: ")
+  (unless size
+    (setq size default-font-size))
+  (set-face-attribute 'default nil :height size))
+
+(set-default-font "Terminus-9")
+(set-font-size)
+
+;; markdown
+(load "~/conf/emacs-mode/markdown-mode.el")
+
+(autoload 'markdown-mode "markdown-mode"
+   "Major mode for editing Markdown files" t)
+
+(add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
+
+(autoload 'gfm-mode "markdown-mode"
+   "Major mode for editing GitHub Flavored Markdown files" t)
+
+(add-to-list 'auto-mode-alist '("README\\.md\\'" . gfm-mode))
+

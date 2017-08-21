@@ -5,3 +5,4 @@ keycode 38 = a A agrave
 keycode 24 = q Q acircumflex
 keycode 30 = u U ugrave
 keycode 54 = c C ccedilla
+keycode 32 = o O ocircumflex

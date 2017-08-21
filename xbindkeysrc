@@ -1,0 +1,7 @@
+#increase volume
+"amixer -D pulse sset Master 5%+"
+        XF86AudioRaiseVolume
+
+#decrease volume
+"amixer -D pulse sset Master 5%-"
+        XF86AudioLowerVolume

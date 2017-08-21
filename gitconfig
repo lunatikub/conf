@@ -1,6 +1,6 @@
 [user]
 	name = Thomas Joly
-	email = thomas.joly@qosmos.fr
+	email = thomas.joly@scality.com
 [branch]
 	autosetuprebase = always
 [color]
@@ -19,3 +19,5 @@
      po = push origin
      br = branch
      co = checkout
+[push]
+     default = simple
