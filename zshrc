@@ -12,6 +12,12 @@ export PATH="/usr/lib/ccache/:$PATH"
 export CCACHE_DIR="/dev/shm/ccache"
 ccache --max-size=8G >/dev/null 2>/dev/null
 
+# Ctrl -> <-
+bindkey '^[[1;5D' backward-word
+bindkey '^[[1;5C' forward-word
+bindkey '^[[3;5~' kill-word
+bindkey '^H'  backward-kill-word
+
 # Alias
 alias 'l=ls'
 alias 'la=ls -A'
@@ -112,7 +118,7 @@ set_prompt () {
 
     function git_branch
     {
-        
+
         if [ -d .git ]
         then
         sed "s/.*\///" .git/HEAD
@@ -155,7 +161,9 @@ function precmd {
 
     local promptsize=${#${(%):--(%n@%m)-(%~)-(%H:%M:%S)-}}
 
-    promptsize=$((promptsize + sz_branch))
+    ADAPT=15
+
+    promptsize=$((promptsize + sz_branch - $ADAPT))
 
     PR_FILLBAR="\${(l.(($TERMWIDTH - $promptsize))..${PR_HBAR}.)}"
 }
