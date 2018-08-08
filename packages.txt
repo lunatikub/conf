@@ -1,0 +1,12 @@
+gcc
+make
+ccache
+clang
+zsh
+xterm
+xfonts-terminus
+weechat
+dmenu
+emacs
+meld
+valgrind
