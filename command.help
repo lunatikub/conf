@@ -62,3 +62,10 @@ docker run -it --name scality -e SCALITY_AUTH_FILE='/etc/scality_credential' ubu
 # keyboard tricks
 pactl set-sink-mute 1 0
 pacmd list-sinks | xclip
+
+# mount an usb key
+sudo fdisk -l # detect usb hard drive
+mkdir /media/foo # create mount point
+mount /dev/foo /media/foo # mount usb drive
+
+mkfs -t vfat /dev/sdb1
