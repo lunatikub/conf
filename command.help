@@ -68,4 +68,8 @@ sudo fdisk -l # detect usb hard drive
 mkdir /media/foo # create mount point
 mount /dev/foo /media/foo # mount usb drive
 
+# format a key
 mkfs -t vfat /dev/sdb1
+
+# generate ssh key
+ssh-keygen -t rsa -b 4096 -C "thomas.joly@scality.com"
