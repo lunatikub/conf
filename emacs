@@ -378,8 +378,12 @@
 (set-default-font "Terminus-9")
 (set-font-size)
 
-;; markdown
-(load "~/conf/emacs-mode/markdown-mode.el")
+;;
+;; MODES
+;;
+
+;; markdown mode
+(load "~/git/conf/emacs-mode/markdown-mode.el")
 
 (autoload 'markdown-mode "markdown-mode"
    "Major mode for editing Markdown files" t)
@@ -392,3 +396,16 @@
 
 (add-to-list 'auto-mode-alist '("README\\.md\\'" . gfm-mode))
 
+;; dot mode
+(load "~/git/conf/emacs-mode/dot-mode.el")
+
+;; yaml mode
+(load "~/git/conf/emacs-mode/yaml-mode.el")
+(add-hook 'yaml-mode-hook
+          (lambda ()
+            (define-key yaml-mode-map "\C-m" 'newline-and-indent)))
+
+;; json mode
+(load "~/git/conf/emacs-mode/json-snatcher.el")
+(load "~/git/conf/emacs-mode/json-reformat.el")
+(load "~/git/conf/emacs-mode/json-mode.el")

@@ -73,3 +73,6 @@ mkfs -t vfat /dev/sdb1
 
 # generate ssh key
 ssh-keygen -t rsa -b 4096 -C "thomas.joly@scality.com"
+
+# wireshark capturing privilege
+sudo usermod -a -G wireshark thomas

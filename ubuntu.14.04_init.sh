@@ -1,7 +1,7 @@
 #!/bin/bash
 
 packages="git gcc make libx11-dev libxinerama-dev emacs ccache clang
-meld valgrind htop xfonts-terminus xterm dmenu weechat zsh"
+meld valgrind htop xfonts-terminus xterm dmenu weechat zsh curl"
 
 sudo apt-get install $packages
 

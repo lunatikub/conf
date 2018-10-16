@@ -1,13 +1,16 @@
 [user]
 	name = Thomas Joly
 	email = thomas.joly@scality.com
+
 [branch]
 	autosetuprebase = always
+
 [color]
 	branch = auto
 	diff = auto
 	interactive = auto
 	status = auto
+
 [alias]
      ll = log --date=iso --pretty=format:'%C(yellow)%h%Creset - %Cred%an, %ad%Creset - %cn, %cd : %Cgreen%s%Creset'
      l5 = log -5 --date=iso --pretty=format:'%C(yellow)%h%Creset - %Cred%an, %ad%Creset - %cn, %cd : %Cgreen%s%Creset'
@@ -19,5 +22,13 @@
      po = push origin
      br = branch
      co = checkout
+
 [push]
      default = simple
+
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+        fetchexclude = 3rdparty/packages,3rdparty/yarn,buildenv/data,buildenv/docker,buildchain/layers/repository,setup/s3/archives
