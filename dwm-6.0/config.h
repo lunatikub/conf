@@ -48,7 +48,9 @@ static const Layout layouts[] = {
 /* commands */
 static const char *dmenucmd[] = { "dmenu_run", "-fn", font, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
 
-static char *termcmd[]  = { "xterm", "-fa", "'Monospace'", "-fs", "12", "-bg", "black", "-fg", "white" }; //xterm -fa 'Monospace' -fs 14
+/* static char *termcmd2[]  = { "xterm", "-fa", "'Monospace'", "-fs", "12", "-bg", "grey19", "-fg", "white" }; //xterm -fa 'Monospace' -fs 14 */
+
+static char *termcmd[]  = { "urxvt" };
 
 /* static const char *lock[] = { "slock",  NULL }; */
 

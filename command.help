@@ -59,6 +59,8 @@ docker rm $(docker ps -a -q)
 docker attach [name]
 docker run -it --name scality -e SCALITY_AUTH_FILE='/etc/scality_credential' ubuntu
 
+docker run -ti --rm -v /home/thomas/:/home/thomas ubuntu:xenial sh
+
 # keyboard tricks
 pactl set-sink-mute 1 0
 pacmd list-sinks | xclip
@@ -76,3 +78,8 @@ ssh-keygen -t rsa -b 4096 -C "thomas.joly@scality.com"
 
 # wireshark capturing privilege
 sudo usermod -a -G wireshark thomas
+
+# Set git to use the credential memory cache
+git config --global credential.helper cache
+# Set the cache to timeout after 1 hour (setting is in seconds)
+git config --global credential.helper 'cache --timeout=3600'
