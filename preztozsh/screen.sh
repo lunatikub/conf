@@ -18,5 +18,5 @@ set_screen()
     xrandr \
         --output DP-1-1 --auto \
         --output DP-1-2 --auto --right-of DP-1-1 \
-        --output eDP-1 --mode 1368x768 --right-of DP-1-2
+        --output eDP-1 --mode 1368x768 --left-of DP-1-1
 }

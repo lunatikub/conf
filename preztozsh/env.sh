@@ -9,3 +9,5 @@ export TZ=Europe/Paris
 # default editor
 export EDITOR="emacs"
 export VISUAL="emacs"
+
+export PATH=$PATH:~/.local/bin
