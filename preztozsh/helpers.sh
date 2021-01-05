@@ -34,6 +34,7 @@ status()
         hyperdrive
         hyperdrive_2
         hyperdrive_3
+        hyperdrive_4
         hdcontroller
         scality-opentracing-c
     )
@@ -111,4 +112,16 @@ rebase_branch()
     git_command "git cherry-pick $ci" && return 1
 
     return 0
+}
+
+touchpah_enable()
+{
+    id=$(xinput | sed -rn '/TouchPad/ s/.*id=([0-9]*).*/\1/p')
+    xinput enable $id
+}
+
+touchpad_disable()
+{
+  id=$(xinput | sed -rn '/TouchPad/ s/.*id=([0-9]*).*/\1/p')
+  xinput disable $id
 }
