@@ -26,3 +26,9 @@ Redirect all cores to `/tmp/cores/`
    chmod a+rwx /tmp/cores
    sudo su
    echo "/tmp/cores/core.%e.%p.%h.%t" > /proc/sys/kernel/core_pattern
+
+GDB
+
+.. code-block:: sh
+
+   gdb binary core

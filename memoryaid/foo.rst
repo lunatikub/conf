@@ -69,3 +69,22 @@ Generate ssh key
 .. code-block:: bash
 
    ssh-keygen -t rsa -b 4096 -C "foo@bar.com"
+
+Tags for emacs
+**************
+
+.. code-block:: bash
+
+   find . -name "*.[chCH]" -print | etags -
+
+Flash OS image to USB drive
+***************************
+
+balenaEtcher
+
+Turn off usb drive write protect
+********************************
+
+.. code-block:: bash
+
+   sudo hdparm -r0 /dev/foo

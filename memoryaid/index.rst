@@ -14,3 +14,4 @@ Thomas Joly
    core_pattern
    docker
    wifi
+   foo
