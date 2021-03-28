@@ -1,0 +1,36 @@
+#!/bin/bash
+#
+# ~/.xinitrc
+#
+# Executed by startx (run your window manager from here)
+
+export TZ=Europe/Paris
+
+# qwerty
+setxkbmap us
+
+xset +fp /usr/share/fonts/efont/
+xset fp rehash
+
+while :
+do
+    # Battery %
+    per_bat=$(upower -i /org/freedesktop/UPower/devices/battery_BAT0 | \
+                     grep percentage | sed "s/[^0-9]*\([0-9]*\).*/\1/")
+
+    # + date
+    xsetroot -name "${per_bat}% | `date +\"%a %d %Y - %H:%M\"`"
+
+    let count=61-`date +"%S"`
+    sleep ${count}
+done &
+
+#ubuntu only to enable super key
+xmodmap -e "keysym Alt_R = Mode_switch Mode_switch Mode_switch Mode_switch"
+# qwerty éàçèêù...
+xmodmap ~/.xmodmaprc
+
+# bind shorcut
+xbindkeys
+
+exec ssh-agent dwm
