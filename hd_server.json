@@ -1,0 +1,69 @@
+{
+  "hd_server_log" : {
+    "title" : "HD server log",
+    "description" : "Hyperdrive server log format",
+    "url" : "https://github.com/scality/hyperdrive",
+    "regex" : {
+      "standalone" : {
+        "pattern" : "^(?<timestamp>\\d{4}\\d{2}\\d{2} \\d{2}:\\d{2}:\\d{2}.\\d{3}): \\[(?<log_thread_id>\\d+)\\]: \\[(?<level>\\w+)\\] \\[(?<log_module>\\w+)\\](?<body>.*)$"
+      },
+      "docker-compose": {
+        "pattern":"^(?<instance>[a-zA-Z0-9_\\-]+ *\\| )(?<timestamp>\\d{4}\\d{2}\\d{2} \\d{2}:\\d{2}:\\d{2}.\\d{3}): \\[(?<log_thread_id>\\d+)\\]: \\[(?<level>\\w+)\\] \\[(?<log_module>\\w+)\\](?<body>.*)$"
+      }
+    },
+    "timestamp-format" : [
+      "%Y%m%d %H:%M:%S.%L"
+    ],
+    "opid-field" : "log_thread_id",
+    "module-field" : "log_module",
+    "multiline" : false,
+    "level" : {
+      "error" : "error",
+      "warning" : "warning",
+      "stats" : "notice",
+      "info" : "info",
+      "debug" : "debug"
+    },
+    "value" : {
+      "instance": {
+        "kind": "string",
+        "identifier": true,
+        "description": "The instance name"
+      },
+      "level" : {
+        "kind" : "string",
+        "identifier" : true,
+        "description" : "The log level"
+      },
+      "log_thread_id" : {
+        "kind" : "integer",
+        "identifier" : true,
+        "description" : "The thread id"
+      },
+      "log_module" : {
+        "kind" : "string",
+        "identifier" : true,
+        "description" : "The name of the module within hyperdriver server"
+      },
+      "body" : {
+        "kind" : "string",
+        "identifier" : false,
+        "description" : "The log main message"
+      }
+    },
+    "sample" : [
+      {
+        "line" : "20191205 14:47:31.891: [31319]: [debug] [engine] profiling, module: init-index, time:36ms"
+      },
+      {
+        "line" : "20191205 14:47:31.902: [31486]: [debug] [dataland] allocate file: 1AEAB2E9F6C99615A8F76FE89E027C74E39ECF843AEB812F5970EDECB087F6D3 on disk: /tmp/debug/d2"
+      },
+      {
+        "line" : "20191205 15:03:05.626: [1318]: [error] [dataland][HD_E_DATA_NOENT:No such file container] dataland_throws: could not open 285700B5E871B41BAB2F2ED679B1DFEC82CB99ED9FDEA4CAAA9769D4A693BB7F: No such file container: No such file or directory"
+      },
+      {
+        "line": "server_2      | 20200331 09:22:53.144: [156]: [debug] [scrubber] scrubbing wait disk=3 next=\"30d23h59min\""
+      }
+    ]
+  }
+}

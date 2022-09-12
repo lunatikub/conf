@@ -7,6 +7,21 @@ Foo
 .. contents:: Table of contents
               :local:
 
+Python HTTP server bind in local
+********************************
+
+.. code-block:: bash
+
+                python3 -m http.server 8888 --bind 0.0.0.0
+                 
+Mount android phone
+*******************
+
+.. code-block:: bash
+
+                mkdir ~/mtp
+                jmtpfs ~/mtp
+                
 Disable screensaver
 *******************
 

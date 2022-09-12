@@ -116,12 +116,21 @@ rebase_branch()
 
 touchpah_enable()
 {
-    id=$(xinput | sed -rn '/TouchPad/ s/.*id=([0-9]*).*/\1/p')
+    id=$(xinput | sed -rn '/Touch[pP]ad/ s/.*id=([0-9]*).*/\1/p')
     xinput enable $id
 }
 
 touchpad_disable()
 {
-  id=$(xinput | sed -rn '/TouchPad/ s/.*id=([0-9]*).*/\1/p')
+  id=$(xinput | sed -rn '/Touch[pP]ad/ s/.*id=([0-9]*).*/\1/p')
   xinput disable $id
+}
+
+clean_emacs_tmp_files()
+{
+    for f in $(find . -regex "^.*/?\.?#.*")
+    do
+        echo $f
+        rm -rf "$f"
+    done
 }

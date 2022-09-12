@@ -65,13 +65,13 @@ static Key keys[] = {
   { MODKEY|ShiftMask,             XK_q,      quit,           {0} },
   { MODKEY,                       XK_Up,     view_next_prev, {.i = +1} },
   { MODKEY,                       XK_Down,   view_next_prev, {.i = -1} },
-  { MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
-  { MODKEY,                       XK_period, focusmon,       {.i = +1 } },
-  { MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
-  { MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
-  { 0,                            0xffad,    spawn,          { .v = sound_down }},
-  { 0,                            0xffab,    spawn,          { .v = sound_up }},
-  { 0,                            0xff13,    spawn,          { .v = lock_cmd }},
+  { MODKEY,                       XK_comma,  focusmon,       {.i = +1 } },
+  { MODKEY,                       XK_period, focusmon,       {.i = -1 } },
+  { MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = +1 } },
+  { MODKEY|ShiftMask,             XK_period, tagmon,         {.i = -1 } },
+  /* { 0,                            0xffad,    spawn,          { .v = sound_down }}, */
+  /* { 0,                            0xffab,    spawn,          { .v = sound_up }}, */
+  /* { 0,                            0xff13,    spawn,          { .v = lock_cmd }}, */
   { MODKEY,                       XK_s,      view_next_auto, { .i = +1 }},
   { MODKEY,                       XK_p,      view_next_auto, { .i = -1 }},
 };
