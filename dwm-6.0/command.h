@@ -11,37 +11,12 @@ static const char *dmenu_cmd[] = {
   NULL
 };
 
-/* static const char *lock_cmd[] = { */
-/*   "i3lock-fancy", */
-/*   "-p", */
-/*   "-g", */
-/*   "-t", */
-/*   "PWD", */
-/*   "-n", */
-/* }; */
-
 static char *term_cmd[]  = {
   "xterm",
   "-fa",
   "'Monospace'",
   "-fs",
-  "13",
+  "14",
 };
-
-/* static char *sound_up[] = { */
-/*   "amixer", */
-/*   "-c", "1", */
-/*   "set", */
-/*   "Master", */
-/*   "5%+", */
-/* }; */
-
-/* static char *sound_down[] = { */
-/*   "amixer", */
-/*   "-c", "1", */
-/*   "set", */
-/*   "Master", */
-/*   "5%-", */
-/* }; */
 
 #endif /* !__COMMAND__ */

@@ -1,4 +1,3 @@
-
 (when (display-graphic-p)
   (progn
     (scroll-bar-mode -1)               ; no scroll bar
@@ -28,28 +27,33 @@
 (setq-default indent-tabs-mode nil)     ; don't use fucking tabs to indent
 
 (custom-set-variables
-  ;; custom-set-variables was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
- '(after-save-hook (quote (executable-make-buffer-file-executable-if-script-p)))
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(after-save-hook
+   (quote
+    (executable-make-buffer-file-executable-if-script-p)))
  '(ido-auto-merge-work-directories-length -1)
  '(ido-confirm-unique-completion t)
  '(ido-create-new-buffer (quote always))
  '(ido-everywhere t)
  '(ido-mode (quote both) nil (ido))
+ '(package-selected-packages (quote (auto-complete-c-headers auto-complete-clang)))
  '(require-final-newline t)
  '(show-paren-mode t nil (paren))
  '(show-paren-style (quote parenthesis))
- '(speedbar-frame-parameters (quote ((minibuffer)
-                                     (width . 20)
-                                     (border-width . 0)
-                                     (menu-bar-lines . 0)
-                                     (tool-bar-lines . 0)
-                                     (unsplittable . t)
-                                     (set-background-color "black")))))
+ '(speedbar-frame-parameters
+   (quote
+    ((minibuffer)
+     (width . 20)
+     (border-width . 0)
+     (menu-bar-lines . 0)
+     (tool-bar-lines . 0)
+     (unsplittable . t)
+     (set-background-color "black")))))
 
-(desktop-load-default)
+;;(desktop-load-default)
 (desktop-read)
 
 ; Affichage des colonnes
@@ -72,14 +76,14 @@
 
 
 ;; COLORS
-(set-background-color "black")
+(set-background-color "grey23")
 (set-foreground-color "white")
 (set-cursor-color "Orangered")
 (custom-set-faces
-  ;; custom-set-faces was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  '(font-lock-builtin-face ((((class color) (background dark)) (:foreground "Turquoise"))))
  '(font-lock-comment-face ((t (:foreground "MediumAquamarine"))))
  '(font-lock-constant-face ((((class color) (background dark)) (:bold t :foreground "DarkOrchid"))))
@@ -311,14 +315,16 @@
     (goto-char (point-min))
     (insert "#!/bin/bash\n\n")))
 
-
-
 ;; HOOKS
 
-;; Delete trailing whitespaces on save (just for c file)
+;; Delete trailing whitespaces on save
 (add-hook 'c-mode-hook
-          (lambda ()
-            (add-hook 'write-file-hooks 'delete-trailing-whitespace)))
+          (lambda () (add-hook 'write-file-hooks 'delete-trailing-whitespace)))
+(add-hook 'sh-mode-hook
+          (lambda () (add-hook 'write-file-hooks 'delete-trailing-whitespace)))
+(add-hook 'c++-mode-hook
+          (lambda () (add-hook 'write-file-hooks 'delete-trailing-whitespace)))
+
 
 ;; (add-hook 'find-file-hooks
 ;;           (lambda ()
@@ -332,10 +338,10 @@
 
 ;; (add-hook 'find-file-hooks
 ;;           (lambda ()
-;;               (when (and (memq major-mode '(c-mode c++-mode))
-;;                          (equal (point-min) (point-max))
-;;                          (string-match ".*\\.cc?" (buffer-file-name)))
-;;                 (insert-header-inclusion))))
+;;             (when (and (memq major-mode '(c-mode c++-mode))
+;;                        (equal (point-min) (point-max))
+;;                        (string-match ".*\\.cc?" (buffer-file-name)))
+;;               (insert-header-inclusion))))
 
 (add-hook 'sh-mode-hook
 	    (lambda ()
@@ -347,9 +353,8 @@
 (add-hook 'c-mode-common-hook (lambda () (hs-minor-mode 1)))
 
 
-
 ;; file extensions
-;;(add-to-list 'auto-mode-alist '("\\.sed$" . sh-mode))
+(add-to-list 'auto-mode-alist '("\\.sed$" . sh-mode))
 
 (defadvice find-tag (around refresh-etags activate)
   "Rerun etags and reload tags if tag not found and redo find-tag.
@@ -364,7 +369,9 @@
              (er-refresh-etags extension)
              ad-do-it))))
 
-;; font
+;;
+;; Font
+;;
 
 (defconst default-font-size 120)
 
@@ -375,37 +382,31 @@
     (setq size default-font-size))
   (set-face-attribute 'default nil :height size))
 
-(set-default-font "Terminus-9")
-(set-font-size)
+(set-frame-font 'default " -PfEd-Terminus (TTF)-normal-normal-normal-*-*-*-*-*-m-0-iso10646-1")
+(set-font-size 120)
 
 ;;
-;; MODES
+;; Modes
 ;;
 
-;; markdown mode
-(load "~/git/conf/emacs-mode/markdown-mode.el")
+(defconst mode-path "/home/tjoly/Git/conf/emacs-mode/")
 
-(autoload 'markdown-mode "markdown-mode"
-   "Major mode for editing Markdown files" t)
+;; each mode in the following list
+;; has to be formated `name-mode.el`
+(defconst modes
+  (list
+   "markdown"
+   "dot"
+   "go"
+   "meson"
+   "yaml"
+   "xcscope"))
 
-(add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
-(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
+(mapcar
+ (lambda (name) (load (concat mode-path name "-mode.el")))
+ modes)
 
-(autoload 'gfm-mode "markdown-mode"
-   "Major mode for editing GitHub Flavored Markdown files" t)
+;; makefile
+(add-to-list 'auto-mode-alist '("Makefile.*\\'" . makefile-mode))
 
-(add-to-list 'auto-mode-alist '("README\\.md\\'" . gfm-mode))
 
-;; dot mode
-(load "~/git/conf/emacs-mode/dot-mode.el")
-
-;; yaml mode
-(load "~/git/conf/emacs-mode/yaml-mode.el")
-(add-hook 'yaml-mode-hook
-          (lambda ()
-            (define-key yaml-mode-map "\C-m" 'newline-and-indent)))
-
-;; json mode
-(load "~/git/conf/emacs-mode/json-snatcher.el")
-(load "~/git/conf/emacs-mode/json-reformat.el")
-(load "~/git/conf/emacs-mode/json-mode.el")

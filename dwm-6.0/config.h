@@ -69,9 +69,6 @@ static Key keys[] = {
   { MODKEY,                       XK_period, focusmon,       {.i = -1 } },
   { MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = +1 } },
   { MODKEY|ShiftMask,             XK_period, tagmon,         {.i = -1 } },
-  /* { 0,                            0xffad,    spawn,          { .v = sound_down }}, */
-  /* { 0,                            0xffab,    spawn,          { .v = sound_up }}, */
-  /* { 0,                            0xff13,    spawn,          { .v = lock_cmd }}, */
   { MODKEY,                       XK_s,      view_next_auto, { .i = +1 }},
   { MODKEY,                       XK_p,      view_next_auto, { .i = -1 }},
 };
@@ -80,8 +77,6 @@ static Key keys[] = {
 /* click can be ClkLtSymbol, ClkStatusText, ClkWinTitle, ClkClientWin, or ClkRootWin */
 static Button buttons[] = {
   /* click                event mask      button          function        argument */
-/*	{ ClkLtSymbol,          0,              Button1,        setlayout,      {0} },
-	{ ClkLtSymbol,          0,              Button3,        setlayout,      {.v = &layouts[2]} },*/
   { ClkWinTitle,          0,              Button2,        zoom,           {0} },
   { ClkStatusText,        0,              Button2,        spawn,          {.v = term_cmd } },
   { ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
@@ -89,8 +84,6 @@ static Button buttons[] = {
   { ClkClientWin,         MODKEY,         Button3,        resizemouse,    {0} },
   { ClkTagBar,            0,              Button1,        view,           {0} },
   { ClkTagBar,            0,              Button3,        toggleview,     {0} },
-  /* { ClkTagBar,            MODKEY,         Button1,        tag,            {0} }, */
-  /* { ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} }, */
 };
 
 #endif /* !__CONFIG__ */
