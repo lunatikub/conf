@@ -1,2 +1,0 @@
-# alias
-alias 'e=emacs'

@@ -1,0 +1,27 @@
+# oh-my-zsh
+
+ZSH_THEME="af-magic"
+
+# Aliases
+alias e="emacs"
+
+# Ctrl -> <-
+bindkey '^[[1;5D' backward-word
+bindkey '^[[1;5C' forward-word
+bindkey '^H' backward-kill-word
+bindkey '^[[3^' kill-word
+bindkey '^[[7~' beginning-of-line
+bindkey '^[[8~' end-of-line
+
+# pyenv
+export PATH="$HOME/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
+export PATH="$HOME/.local/bin:$PATH" # pip binaries
+
+# Tells 'less' not to paginate if less than a page
+export LESS="-F -X $LESS"
+
+# ledger
+source $HOME/Git/ledger-utils/scripts/ledgerrc.sh

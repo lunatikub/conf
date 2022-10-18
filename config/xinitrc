@@ -1,8 +1,4 @@
 #!/bin/bash
-#
-# ~/.xinitrc
-#
-# Executed by startx (run your window manager from here)
 
 export TZ=Europe/Paris
 
@@ -25,12 +21,7 @@ do
     sleep ${count}
 done &
 
-#ubuntu only to enable super key
 xmodmap -e "keysym Alt_R = Mode_switch Mode_switch Mode_switch Mode_switch"
-# qwerty éàçèêù...
 xmodmap ~/.xmodmaprc
-
-# bind shorcut
-xbindkeys
 
 exec ssh-agent dwm
