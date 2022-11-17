@@ -1,6 +1,25 @@
 ;; .emacs
 ;; (load "/home/tjoly/git/conf/emacs/emacs.el")
 
+(require 'package)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+(add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
+(package-initialize)
+
+;; Working
+(global-set-key [(control c) (w)] 'delete-trailing-whitespace)
+
+;;
+;; Compile
+;;
+
+(setq compile-command "make -C ~/git/bolos-ng --file=Makefile.perso nanox")
+(global-set-key [(control c) (c)] 'compile)
+
+;;
+;; Graphic
+;;
+
 (when (display-graphic-p)
   (progn
     (scroll-bar-mode -1)               ; no scroll bar
@@ -208,7 +227,6 @@
 (global-set-key (kbd "M-<down>") 'windmove-down)                ; move to upper window
 (global-set-key (kbd "M-<up>") 'windmove-up)                ; move to upper window
 (global-set-key (kbd "M-<right>") 'windmove-right)                ; move to upper window
-(global-set-key [(control c) (c)] 'build)
 (global-set-key [(control c) (d)] 'gen-doxy-com)
 (global-set-key [(control c) (e)] 'next-error)
 (global-set-key [(control tab)] 'other-window)          ; Ctrl-Tab = Next buffer
@@ -278,7 +296,3 @@
 (mapcar
  (lambda (name) (load (concat lib-path name ".el")))
  lib)
-
-
-
-

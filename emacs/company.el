@@ -2,6 +2,8 @@
 ;; auto-completion company
 ;;
 
+(require 'company)
+
 (add-hook 'after-init-hook 'global-company-mode)
 
 (global-set-key (kbd "<tab>") #'company-indent-or-complete-common)

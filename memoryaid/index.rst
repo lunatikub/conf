@@ -11,7 +11,9 @@ Thomas Joly
    :titlesonly:
    :caption: Posts
 
+   bash_tricks
    core_pattern
    docker
+   git
    wifi
    foo
