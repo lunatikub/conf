@@ -1,9 +1,28 @@
-# oh-my-zsh
+export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_THEME="af-magic"
 
+plugins=(
+    git
+    zsh-autosuggestions
+    zsh-syntax-highlighting
+    web-search
+    history
+    colored-man-pages
+)
+
+source $ZSH/oh-my-zsh.sh
+
+# Preferred editor for local and remote sessions
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='emacs'
+else
+  export EDITOR='emacs'
+fi
+
 # Aliases
-alias e="emacs"
+alias emacs_c="emacsclient --create-frame"
+alias e="emacs --no-init-file -l ~/git/conf/emacs.d/emacs.el"
 
 # Ctrl -> <-
 bindkey '^[[1;5D' backward-word
@@ -24,4 +43,8 @@ export PATH="$HOME/.local/bin:$PATH" # pip binaries
 export LESS="-F -X $LESS"
 
 # ledger
-source $HOME/Git/ledger-utils/scripts/ledgerrc.sh
+source $HOME/git/ledger-utils/ledgerrc.sh
+source $HOME/git/conf/session_init/session_init.sh
+
+# autocompletion
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#ffffff,bg=cyan,bold,underline"

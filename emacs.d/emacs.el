@@ -1,6 +1,10 @@
 ;; .emacs
 ;; (load "/home/tjoly/git/conf/emacs/emacs.el")
 
+(defconst emacs-d "/home/tjoly/git/conf/emacs.d/")
+
+(setq user-emacs-directory emacs-d)
+
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 (add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
@@ -13,8 +17,9 @@
 ;; Compile
 ;;
 
-(setq compile-command "make -C ~/git/bolos-ng --file=Makefile.perso nanox")
-(global-set-key [(control c) (c)] 'compile)
+;;(setq compile-command "make ...")
+;;(global-set-key [(control c) (b)] 'compile)
+;;(compilation-auto-jump-to-first-error 'True)
 
 ;;
 ;; Graphic
@@ -276,8 +281,6 @@
 ; Start code folding mode in C/C++ mode
 (add-hook 'c-mode-common-hook (lambda () (hs-minor-mode 1)))
 
-(defconst lib-path "/home/tjoly/git/conf/emacs/")
-
 ;; each lib in the following list will be loaded
 (defconst lib
   (list
@@ -294,5 +297,5 @@
    "yaml"))
 
 (mapcar
- (lambda (name) (load (concat lib-path name ".el")))
+ (lambda (name) (load (concat emacs-d name ".el")))
  lib)

@@ -14,6 +14,7 @@ Thomas Joly
    bash_tricks
    core_pattern
    docker
+   emacs
    git
    wifi
    foo

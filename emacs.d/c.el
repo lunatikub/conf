@@ -70,7 +70,6 @@
 ;; BINDINGS :: C
 
 (global-set-key [(control c) (a)] 'align-current)
-(global-set-key [(control c) (m)] 'compile)
 
 (global-set-key [(control c) (h)] 'c-switch-c-h)
 (global-set-key [(control h) (c)] 'c-switch-h-c)

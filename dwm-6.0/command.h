@@ -17,6 +17,22 @@ static char *term_cmd[]  = {
   "'Monospace'",
   "-fs",
   "14",
+  NULL,
+};
+
+static char *emacsclient_cmd[] = {
+  "emacsclient",
+  "--create-frame",
+  NULL,
+};
+
+static char *emacs_cmd[] = {
+  "emacs",
+  "--quick",
+  "--no-init-file",
+  "-l",
+  "~/git/conf/emacs.d/emacs.el",
+  NULL,
 };
 
 #endif /* !__COMMAND__ */

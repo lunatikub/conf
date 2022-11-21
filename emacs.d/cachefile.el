@@ -17,6 +17,10 @@ The file cache can be saved to a file using
     (setq file-cache-alist (read buf))
     (kill-buffer buf)))
 
+;; TODO
+;; update-file-cache
+;; (exec create_cache_file.sh repo)
+
 ;; (eval-after-load
 ;;     "filecache"
 ;;   '(progn

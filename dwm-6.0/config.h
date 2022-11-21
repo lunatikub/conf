@@ -36,6 +36,8 @@ static Key keys[] = {
   /* modifier                     key        function        argument */
   { MODKEY,                       XK_r,      spawn,          {.v = dmenu_cmd } },
   { MODKEY,                       XK_c,      spawn,          {.v = term_cmd } },
+  { MODKEY,                       XK_e,      spawn,          {.v = emacsclient_cmd } },
+  { MODKEY,                       XK_w,      spawn,          {.v = emacs_cmd } },
   { MODKEY,                       XK_b,      togglebar,      {0} },
   { MODKEY,                       XK_Left,   focusstack,     {.i = +1 } },
   { MODKEY,                       XK_Right,  focusstack,     {.i = -1 } },
