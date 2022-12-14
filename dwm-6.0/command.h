@@ -35,4 +35,9 @@ static char *emacs_cmd[] = {
   NULL,
 };
 
+static char *xsecurelock[] = {
+  "xsecurelock",
+  NULL,
+};
+
 #endif /* !__COMMAND__ */
