@@ -15,7 +15,7 @@ do
                      grep percentage | sed "s/[^0-9]*\([0-9]*\).*/\1/")
 
     # + date
-    xsetroot -name "${per_bat}% | `date +\"%a %d %Y - %H:%M\"`"
+   xsetroot -name "${per_bat}% | `date +\"%a %d %Y - %H:%M\"`"
 
     let count=61-`date +"%S"`
     sleep ${count}
