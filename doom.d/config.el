@@ -9,6 +9,7 @@
 (setq user-full-name "Thomas Joly"
       user-mail-address "joly.th@gmail.com")
 
+
 ;; Doom exposes five (optional) variables for controlling fonts in Doom:
 ;;
 ;; - `doom-font' -- the primary font to use
@@ -42,6 +43,7 @@
 ;; change `org-directory'. It must be set before org loads!
 (setq org-directory "~/org/")
 
+
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
 ;; `after!' block, otherwise Doom's defaults may override your settings. E.g.
 ;;
@@ -74,16 +76,23 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
-;; projectile
+;;
+;; Config
+;;
+
+; projectile
 (setq
  projectile-project-search-path '("~/git")
  projectile-enable-caching t)
 
-;; BINDINGS :: isearch
+; build command
+(setq compile-command "make -C ~/git/bolos-ng --file=Makefile.perso")
 
-(global-unset-key [(control s)])
-(global-set-key [(control f)] 'isearch-forward-regexp)  ; search regexp
-(global-set-key [(control r)] 'query-replace-regexp)    ; replace regexp
+;;
+;; Isearch
+;;
+
+(setq case-fold-search t)   ; make searches case insensitive
 
 ;; next occurence
 (define-key
@@ -97,51 +106,87 @@
   [(control p)]
   'isearch-repeat-backward)
 
-;; BINDINGS :: windows
+;;
+;; Bindings
+;;
 
-(global-set-key [(control a)] 'mark-whole-buffer)       ; select whole buffer
-(global-set-key [C-home] 'beginning-of-buffer)          ; go to the beginning of buffer
-(global-set-key [C-end] 'end-of-buffer)                 ; go to the end of buffer
-(global-set-key [(meta g)] 'goto-line)                  ; goto line #
-(global-set-key [A-left] 'windmove-left)                ; move to left windnow
-(global-set-key [A-up] 'windmove-up)                    ; move to right window
-(global-set-key [A-down] 'windmove-down)                ; move to upper window
-(global-set-key [A-right] 'windmove-right)
-(global-set-key (kbd "M-<left>") 'windmove-left)                ; move to left windnow
-(global-set-key (kbd "M-<down>") 'windmove-down)                ; move to upper window
-(global-set-key (kbd "M-<up>") 'windmove-up)                ; move to upper window
-(global-set-key (kbd "M-<right>") 'windmove-right)                ; move to upper window
+;; isearch
+(global-unset-key [(control s)])
+(global-set-key [(control f)] 'isearch-forward-regexp)
+(global-set-key [(control r)] 'query-replace-regexp)
 
-;; BINDINGS :: foo
+;; windows
+(global-set-key (kbd "M-<left>") 'windmove-left)
+(global-set-key (kbd "M-<down>") 'windmove-down)
+(global-set-key (kbd "M-<up>") 'windmove-up)
+(global-set-key (kbd "M-<right>") 'windmove-right)
 
-(global-set-key [(control c) (w)] 'delete-trailing-whitespace)
-(setq compile-command "make -C ~/git/bolos-ng --file=Makefile.perso")
-(global-set-key [(control c) (b)] 'compile)
+;; foo
+(global-set-key [(meta g)] 'goto-line)
+(global-set-key [(meta c)] 'recenter)
+(global-set-key [(meta d)] 'delete-trailing-whitespace)
 
-;; dev mode
+;; buffer
+(global-set-key [(control a)] 'mark-whole-buffer)
+(global-set-key [C-home] 'beginning-of-buffer)
+(global-set-key [C-end] 'end-of-buffer)
+
+;; compile
+(global-unset-key [(control b)])
+(global-set-key [(control b)] 'compile)
+
+;; lsp
+(global-unset-key [(control v)])
+(global-set-key [(control v) (d)] 'lsp-find-definition)
+(global-set-key [(control v) (e)] 'lsp-find-declaration)
+(global-set-key [(control v) (r)] 'lsp-find-references)
+(global-set-key [(control v) (f)] 'lsp-format-buffer)
+(global-set-key [(control v) (g)] 'lsp-format-region)
+
+;; c
+(global-set-key [(control c) (a)] 'align-current)
+(global-set-key [(control c) (h)] 'c-switch-c-h)
+(global-set-key [(control h) (c)] 'c-switch-h-c)
+
+;; kill buffer
+(global-set-key (kbd "C-x k") 'volatile-kill-buffer)
+
+;; rg
+(global-set-key [(meta r)] 'rg-project)
+
+;; json
+(global-unset-key [(control j)])
+(global-set-key [(control j) (m)] 'json-mode)
+(global-set-key [(control j) (f)] 'json-pretty-print-buffer)
+
+;;
+;; Extensions
+;;
+
+(add-to-list 'auto-mode-alist '("jenkinsfile" . jenkinsfile-mode))
+(add-to-list 'auto-mode-alist '("\\.sed$" . sh-mode))
+(add-to-list 'auto-mode-alist '("Makefile.*\\'" . makefile-mode))
+(add-to-list 'auto-mode-alist '("\\.json$" . json-mode))
+(global-so-long-mode 0)
+
+;;
+;; Dev
+;;
 
 (add-hook 'c-mode-hook 'lsp)
 (add-hook 'python-mode 'lsp)
 
-(setq company-backends '((company-clang
-                          company-shell
-                          company-capf
-                          company-dabbrev-code)))
+(electric-indent-mode 0)
 
-(setq company-dabbrev-minimum-length 2)
-(setq company-dabbrev-ignore-case 'keep-prefix)
+(setq lsp-idle-delay 1)
 
-;; sed
-(add-to-list 'auto-mode-alist '("\\.sed$" . sh-mode))
+(setq company-backends '((company-clang)))
 
-;; makefile
-(add-to-list 'auto-mode-alist '("Makefile.*\\'" . makefile-mode))
+(setq company-minimum-prefix-length 2)
+(setq company-idle-delay 0)
 
-;; BINDINGS :: lsp
-
-(global-set-key [(control c) (d)] 'lsp-find-definition)
-(global-set-key [(control c) (D)] 'lsp-find-declaration)
-(global-set-key [(control c) (r)] 'lsp-find-references)
+;; (setq company-dabbrev-minimum-length 3)
+;; (setq company-dabbrev-ignore-case 'keep-prefix)
 
 ;; Switch c source file to header file
 (defun c-switch-c-h ()
@@ -195,15 +240,10 @@
 
 (add-hook 'prog-mode-hook 'whitespace-mode)
 
-;; BINDINGS :: C
-
-(global-set-key [(control c) (a)] 'align-current)
-(global-set-key [(control c) (h)] 'c-switch-c-h)
-(global-set-key [(control h) (c)] 'c-switch-h-c)
-
-
+;;
 ;; Indentation
 ;;
+
 (setq-default indent-tabs-mode nil) ;; don't use fucking tabs to indent
 (electric-indent-mode 1) ;; auto indentafter RET
 (setq sh-basic-offset 2)
@@ -212,3 +252,17 @@
 (add-hook 'python-mode-hook
           #'(lambda () (setq electric-indent-mode nil)))
 
+;;
+;; Kill buffer without confirmation
+;;
+
+(defun volatile-kill-buffer ()
+   "Kill current buffer unconditionally."
+   (interactive)
+   (let ((buffer-modified-p nil))
+     (kill-buffer (current-buffer))))
+
+(beacon-mode 1)
+(setq beacon-blink-duration 1)
+
+(rainbow-delimiters-mode 1)
