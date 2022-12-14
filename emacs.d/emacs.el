@@ -5,10 +5,10 @@
 
 (setq user-emacs-directory emacs-d)
 
-(require 'package)
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
-(add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
-(package-initialize)
+;; (require 'package)
+;; (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+;; (add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
+;; (package-initialize)
 
 ;; Working
 (global-set-key [(control c) (w)] 'delete-trailing-whitespace)
@@ -17,9 +17,7 @@
 ;; Compile
 ;;
 
-;;(setq compile-command "make ...")
-;;(global-set-key [(control c) (b)] 'compile)
-;;(compilation-auto-jump-to-first-error 'True)
+(global-set-key [(control c) (b)] 'compile)
 
 ;;
 ;; Graphic
@@ -284,17 +282,18 @@
 ;; each lib in the following list will be loaded
 (defconst lib
   (list
-   "c"
-   "cachefile"
-   "company"
-   "dot"
    "extensions"
-   "font"
-   "go"
-   "markdown"
-   "meson"
-   "xcscope"
-   "yaml"))
+   "font"))
+
+;;    "c"
+;;    "cachefile"
+;;    "company"
+;;    "dot"
+;;    "go"
+;;    "markdown"
+;;    "meson"
+;;    "xcscope"
+;;    "yaml"))
 
 (mapcar
  (lambda (name) (load (concat emacs-d name ".el")))
