@@ -135,7 +135,6 @@ export LESS="-F -X $LESS"
 
 # ledger
 source $HOME/git/ledger-utils/ledgerrc.sh
-source $HOME/git/conf/session_init/session_init.sh
 
 # utils
 source $HOME/git/conf/utils/utils.sh

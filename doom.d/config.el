@@ -246,8 +246,11 @@
 
 (setq-default indent-tabs-mode nil) ;; don't use fucking tabs to indent
 (electric-indent-mode 1) ;; auto indentafter RET
+(setq-default sh-basic-offset 2)
 (setq sh-basic-offset 2)
 (setq c-basic-offset 2)
+(setq-default c-basic-offset 2)
+(setq-default tab-width 2)
 
 (add-hook 'python-mode-hook
           #'(lambda () (setq electric-indent-mode nil)))
