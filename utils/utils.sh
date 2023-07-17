@@ -2,6 +2,8 @@
 
 script_dir=$(realpath $(readlink -f $(dirname $0)))
 
+source ${script_dir}/venv.sh
+
 trans() {
     $script_dir/translate.sh $@
 }

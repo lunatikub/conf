@@ -18,3 +18,4 @@ Thomas Joly
    git
    wifi
    foo
+   gpg

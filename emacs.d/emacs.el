@@ -283,7 +283,8 @@
 (defconst lib
   (list
    "extensions"
-   "font"))
+   "font"
+   "cmake"))
 
 ;;    "c"
 ;;    "cachefile"
@@ -298,3 +299,4 @@
 (mapcar
  (lambda (name) (load (concat emacs-d name ".el")))
  lib)
+

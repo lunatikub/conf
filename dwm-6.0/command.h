@@ -14,10 +14,18 @@ static const char *dmenu_cmd[] = {
 static char *term_cmd[]  = {
   "xterm",
   "-fa",
-  "'Monospace'",
+  "Hack",
   "-fs",
   "14",
   NULL,
+};
+
+static char *term_cmd_invert[] = {
+  "xterm",
+  "-fa", "Hack",
+  "-fs", "14",
+  "-bg", "white",
+  "-fg", "black",
 };
 
 static char *emacsclient_cmd[] = {
