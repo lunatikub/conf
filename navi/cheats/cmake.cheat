@@ -1,0 +1,18 @@
+% cmake
+
+# Create a build directory
+cmake -D PRODUCT=<product> -D FLAVOR=<flavor> -D CCACHE=<ccache> -B <build_dir>
+
+# Set product
+cmake .. -D PRODUCT=<product>
+
+# Set flavor
+cmake .. -D FLAVOR=<flavor>
+
+# Set DEBUG
+cmake .. -D DEBUG=<debug>
+
+$ product: echo "nanox nanosp stax flex" | tr ' ' '\n' ---
+$ flavor: echo "default ci release" | tr ' ' '\n' ---
+$ ccache: echo "1 0" | tr ' ' '\n' ---
+$ debug: echo "1 0" | tr ' ' '\n' ---

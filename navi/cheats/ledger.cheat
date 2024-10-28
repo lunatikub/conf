@@ -1,0 +1,14 @@
+% ledger
+
+# ssh red
+ssh 10.103.225.198
+
+# watch device 
+watch -n 0.2 -d lsusb
+
+# fab
+python3 tools/python/fab_nanox.py --id 1 
+python3 tools/python/fab_nanox.py --id 0
+
+# onboard
+python3 -m ledgerblue.hostOnboard --apdu --id 0 --pin 5555 --prefix "" --passphrase "" --words "zoo zoo zoo zoo zoo zoo zoo zoo zoo zoo zoo zoo zoo zoo zoo zoo zoo zoo zoo zoo zoo zoo zoo vote"

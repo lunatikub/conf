@@ -2,51 +2,27 @@
 Docker
 ******
 
-.. contents:: Table of contents
-              :local:
+.. code-block:: bash
 
-Dockerfile
-**********
+   docker build -t <name> -f Dockerfile .
 
-Create a docker image on bionic with simple packages.
+.. code-block:: bash
 
-.. code-block:: docker
-
-   FROM ubuntu:bionic
-
-   ENV FOO /var/lib/
-
-   RUN apt-get update
-   RUN apt-get install gcc make
-
-Build 
-*****
+   # Share volume
+   $ docker run -td -v path:path ...
    
-.. code-block:: bash
+.. code-block:: shell-session
 
-   docker build -t bionic .
+   $ docker exec -it <id> bash
 
-.. note::
+.. code-block:: shell-session
 
-   **Dockerfile** has to exist !
-
-Run
-***
-
-.. code-block:: bash
-
-   docker run --init --privileged -t -d --hostname=bionic --name bionic -v /home/thomas/.ssh:/home/thomas/.ssh -v /home/thomas/git:/home/thomas/git -v /tmp:/tmp bionic
+   # remove all containers
+   $ docker rm -f $(docker ps -aq)
    
-Start
-*****
+.. code-block:: shell-session
 
-.. code-block:: bash
+   # remove all images
+   $ docker rmi -f $(docker images -aq) 
 
-   docker start bionic
-
-Exec
-****
-
-.. code-block:: bash
-
-   sudo docker exec -i -e "TERM=xterm-256color" -t bionic su -l thomas
+   

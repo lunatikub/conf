@@ -1,0 +1,94 @@
+;;; -*- coding: utf-8 -*-
+
+;; ----- ido-last-directory-list -----
+(
+ ("/home/tjoly/ledger/core/mcu-ng/nanox/project/" . "bootloader/")
+ ("/home/tjoly/ledger/core/common-build/src/" . "libci/")
+ ("/home/tjoly/ledger/conf/" . "emacs.d/")
+ ("/home/tjoly/ledger/" . "conf/")
+ ("/home/tjoly/" . ".config/")
+)
+
+;; ----- ido-work-directory-list -----
+(
+ "/home/tjoly/ledger/core/bolos-ng/se/os/mk/"
+ "/home/tjoly/ledger/conf/dwm-6.0/"
+ "/home/tjoly/ledger/conf/emacs.d/"
+ "/home/tjoly/.emacs.d/"
+ "/home/tjoly/ledger/core/mcu-ng/mk/"
+ "/home/tjoly/ledger/core/mcu-ng/nanox/project/bootloader/"
+ "/home/tjoly/ledger/core/bolos-ng/se/osu/tools/"
+ "/home/tjoly/ledger/core/common-build/src/libci/"
+ "/home/tjoly/"
+ "/home/tjoly/ledger/conf/utils/"
+)
+
+;; ----- ido-work-file-list -----
+(
+ "pre_build.py"
+ "const.h"
+ "config.mk"
+ "config.h"
+ "config.def.h"
+ "command.h"
+ "emacs.el"
+ "python.el"
+ "vertico.el"
+ "lsp.el"
+)
+
+;; ----- ido-dir-file-cache -----
+(
+ ("/home/tjoly/ledger/core/bolos-ng/se/os/mk/" (26399 20451 73233 866000) "st33_bl_enc.py" "io.cmake" "build_language_pack_fonts_info.py" "definitions.cmake" "flags.cmake" "device.py" "config.cmake" "os.cmake" "shared.cmake" "pre_build.py" "./" "ld/" "post_build.py" "sources.cmake" "gen_mcu_versions.py" "rules.cmake" "ux.cmake" "../")
+
+ ("/home/tjoly/ledger/conf/dwm-6.0/" (26395 31653 986138 894000) "config.def.h" "Makefile" "config.mk" "LICENSE" "dwm.c" "dwm" "command.h" "./" "README" "const.h" "config.h" "dwm.o" "dwm.1" "../")
+
+ ("/home/tjoly/ledger/conf/emacs.d/" (26393 3943 940113 146000) "#ido.last#" "dot.el" "company.el" "emacs_bak.el" "yaml.el" "go.el" "bookmarks" "keep.el" "markdown.el" "./" "ebnf.el" "font.el" "ido.last" "docker.el" "cachefile.el" "jenkinsfile.el" "meson.el" "emacs.el" "xcscope.el" "cmake.el" "c.el" "extensions.el" "../")
+
+ ("/home/tjoly/ledger/" (26392 60061 322656 364000) "notes/" "gcc-arm-none-eabi-7-2017-q4-major-linux.tar.bz2" "gpg_keys/" "app/" "SpaceMonoNerdFont.tar.xz" "conf/" "foo.txt" "r_tjo/" "release.txt" "ledger-live-desktop-2.87.1-linux-x86_64.AppImage" "nerd-fonts/" "STM32CubeProgrammer/" "redvpn/" "presentation_new_build_system/" "./" "doom.d/" "gcc-arm-none-eabi-10-2020-q4-major-x86_64-linux.tar.bz2" "core/" "dev/" "TODO.org" "../")
+
+ ("/home/tjoly/" (26393 7215 565585 966000) ".emacs.el~" ".sudo_as_admin_successful" ".STM32CubeProgrammer/" ".xinitrc" ".Xauthority" "Public/" "Documents/" "Downloads/" ".dbus/" ".local/" ".pyenv/" ".stmcube/" ".gnupg/" ".emacs.d/" ".screenlayout/" ".cargo/" "Desktop/" ".ssh/" ".hplip/" ".Xdefaults" ".npm/" ".lesshst" "snap/" ".xsession-errors" ".zsh_history" ".zcompdump" ".zshrc~" ".fzf.zsh" ".zcompdump-LPFR0183-5.9.zwc" ".fzf.bash" "toto.png" "./" ".gitconfig" ".cache/" "ledger/" "Video/" "Pictures/" ".bashrc" "perso/" ".zcompdump-LPFR0183-5.9" ".python_history" ".zshrc" "tools/" ".pulse-cookie" ".java/" ".xmodmaprc" ".profile" ".pki/" ".config/" ".fzf/" ".rustup/" "../" ".oh-my-zsh/")
+
+ ("/home/tjoly/.emacs.d/" (26393 7216 773600 484000) ".emacs.el~" "snippets/" ".python-environments/" "binding.el" "recentf" "projectile.el" "ac-comphist.dat" "json.el" "hooks.el" "init.el" "package.el" "vertico.el" "flycheck.el" "lsp.el" "eln-cache/" "python.el" "history" "elpa/" ".lsp-session-v1" "theme.el" "./" ".cache/" "projectile-bookmarks.eld" "elpy.el" "themes/" "jenkinsfile.el" "beta.el" "elpy/" "cmake.el" "auto-save-list/" "../")
+
+ ("/home/tjoly/ledger/core/mcu-ng/mk/" (26392 49607 934809 208000) "flavors.cmake" "show_source_directories.cmake" "info.cmake" "ble.cmake" "nfc.cmake" "products.cmake" "paths.cmake" "flags.cmake" "target.cmake" "data/" "config.cmake" "ccache.cmake" "doc.cmake" "./" "hw.cmake" "utils.cmake" "rules.cmake" "editor.cmake" "projects.cmake" "toolchain.cmake" "libs.cmake" "../" "requirements.cmake")
+
+ ("/home/tjoly/ledger/core/mcu-ng/" (26392 49607 934809 208000) "doc/" "build/" "README.md" "Dockerfile" "common/" "src/" "nanox/" ".gitignore" "ci/" ".git/" "./" "build_stax_ci/" "tools/" "toto/" "requirements.txt" ".clangd" "CMakeLists.txt" ".python-version" "mk/" "../")
+
+ ("/home/tjoly/ledger/core/mcu-ng/src/" (26392 49608 62810 773000) "common/" "nanox/" "stax/" "nanosp/" "ganymede/" "flex/" "./" "../")
+
+ ("/home/tjoly/ledger/core/mcu-ng/src/nanox/" (26392 49608 62810 773000) "bridge/" "common/" "bootloader/" "./" "seph/" "blup/" "../")
+
+ ("/home/tjoly/ledger/core/mcu-ng/src/nanox/seph/mk/" (26392 49608 62810 773000) "script.ld.template" "pre_build.py" "./" "post_build.py" "../")
+
+ ("/home/tjoly/ledger/core/mcu-ng/src/nanox/seph/" (26392 49608 62810 773000) "src/" "./" "CMakeLists.txt" "include/" "mk/" "../")
+
+ ("/home/tjoly/ledger/core/mcu-ng/nanox/project/bootloader/" (26392 46895 449739 189000) "Makefile" "build/" "script.ld.template" "Makefile.target.release" "src/" "./" "include/" "Makefile.target.default" "../")
+
+ ("/home/tjoly/ledger/core/mcu-ng/nanox/project/" (26392 44598 773576 371000) "bridge/" "bootloader/" "./" "seph/" "blup/" "../")
+
+ ("/home/tjoly/ledger/core/mcu-ng/nanox/project/seph/" (26392 46895 449739 189000) "Makefile" "build/" "script.ld.template" "Makefile.target.release" "src/" "./" "include/" "Makefile.target.default" "../")
+
+ ("/home/tjoly/ledger/core/bolos-ng/se/osu/tools/" (26390 28330 682197 227000) "osu_orchestrator_common.sh" "osu_orchestrator_from_version.sh" "./" "osu_orchestrator_from_tag.sh" "../")
+
+ ("/home/tjoly/ledger/core/bolos-ng/mk/" (26391 32972 644354 510000) "flavors.cmake" "language_pack.cmake" "glyphs.cmake" "keys.json" "info.cmake" "products.cmake" "paths.cmake" "cloc.cmake" "bls.cmake" "prerequisites.cmake" "config_parser.cmake" "ccache.cmake" "doc.cmake" "targets.cmake" "config.json" "./" "keys.cmake" "utils.cmake" "keys.py" "editor.cmake" "toolchain.cmake" "strings.cmake" "../" "requirements.cmake")
+
+ ("/home/tjoly/ledger/core/common-build/src/libci/" (26391 29123 994758 463000) "mcu_builder.py" "repo.py" "__main__.py" "__init__.py" "makefile.py" "builder.py" "init_local_pipeline.sh" "api/" "osu_builder.py" "signer.py" "config.json" "cmake.py" "_api/" "common.py" "./" "bolos_builder.py" "keys.py" "language_pack_builder.py" "config.py" "env.py" "__pycache__/" "../")
+
+ ("/home/tjoly/ledger/core/common-build/src/" (26383 46689 288080 559000) "common_build.egg-info/" ".mypy_cache/" "./" "libbuild/" "libci/" "../")
+
+ ("/home/tjoly/ledger/core/common-build/" (26391 28776 634988 117000) "doc/" "dev-requirements.txt" "README.md" "src/" ".pre-commit-config.yaml" "tests/" ".gitignore" "publish-doc/" "ci/" ".git/" "./" "setup.py" "ruff.toml" "requirements.txt" "CMakeLists.txt" "mk/" "../")
+
+ ("/home/tjoly/ledger/core/common-build/tests/" (26363 47257 903328 481000) "config.json" "helpers/" "./" "libbuild/" "conftest.py" "libci/" "../")
+
+ ("/home/tjoly/ledger/core/common-build/tests/libci/" (26386 7145 344460 958000) "test_osu_builder.py" "test_mcu_builder.py" "test_language_pack_builder.py" "test_bolos_builder.py" "./" "test_check_version.py" "../")
+
+ ("/home/tjoly/ledger/conf/utils/" (26335 2683 775463 240000) "utils.sh" "keyboard_reset.sh" "./" "utils_common.sh" "translate.sh" "../")
+
+ ("/home/tjoly/ledger/conf/" (26390 3664 550903 183000) "config/" "navi/" "emacs.d/" "memoryaid/" ".mypy_cache/" "z/" ".git/" "./" "emacs-shortcuts/" "doom.d/" "utils/" "dwm-6.0/" "new-emacs/" "sync_conf.sh" ".python-version" "../")
+
+ ("/home/tjoly/.config/" (26386 35333 458951 885000) "gtk-4.0/" "neofetch/" "rpcs3/" "procps/" "ibus/" ".gsd-keyboard.settings-ported" "navi/" "Unknown Organization/" "Code/" "gpick/" "QtProject.conf" "gtk-2.0/" "pavucontrol.ini" "vlc/" "yuzu/" "microsoft-edge-dev/" "Signal/" "git-cola/" "vivaldi/" "wireshark/" "gtk-3.0/" "menus/" "google-chrome-beta/" "Slack/" "clangd/" "komparerc" "PySimpleGUI/" "BraveSoftware/" "desmume/" "pulse/" "mono.addins/" "bpytop/" "update-notifier/" "terminator/" "GIMP/" "glib-2.0/" "sidekick/" "./" "goa-1.0/" "doom/" "monitors.xml" "ledger/" "htop/" "matplotlib/" "Ledger Live/" "gedit/" "gnome-initial-setup-done" "gnome-session/" "Kitware/" "evolution/" "chromium/" "mimeapps.list" "GitKraken/" "dconf/" "user-dirs.dirs" "lnav/" ".org.chromium.Chromium.QkbxfS" "1Password/" "cef_user_data/" "git/" "user-dirs.locale" "nautilus/" "zoom.conf" "enchant/" "vivaldi-snapshot/" "eog/" "qgit/" "google-chrome-unstable/" "zoomus.conf" "google-chrome/" "Pinta/" "../")
+)
+
+;; ----- ido-unc-hosts-cache -----
+t

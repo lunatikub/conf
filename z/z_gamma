@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+
+XGAMMA=$(which xgamma)
+THRESHOLD=0.1
+
+gamma_get() {
+    ${XGAMMA} 2>&1 |
+        sed 's/.*Red[^0-9]*\([^,]*\).*/\1/'
+}
+
+gamma_up() {
+    gamma=$(gamma_get)
+    gamma=$(echo "${gamma} + ${THRESHOLD}" | bc)
+    ${XGAMMA} -gamma ${gamma}
+    z_notify "Volume" "+++++ Gamma ${gamma} +++++" 100 1
+}
+
+gamma_down() {
+    gamma=$(gamma_get)
+    gamma=$(echo "${gamma} - ${THRESHOLD}" | bc)
+    echo ${gamma}
+    ${XGAMMA} -gamma ${gamma}
+    z_notify "Volume" "----- Gamma ${gamma} -----" 100 1
+}
+
+if [ "$1" == "up" ]; then
+    gamma_up
+elif [ "$1" == "down" ]; then
+    gamma_down
+elif [ "$1" == "get" ]; then
+    gamma_get
+fi

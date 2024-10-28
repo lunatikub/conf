@@ -1,6 +1,7 @@
 [user]
 	name = Thomas Joly
 	email = thomas.joly@ledger.fr
+	signingkey = 8F9796D2E257D1BCF4950BE2DDA2AF97C2C213B4
 
 [branch]
 	autosetuprebase = always
@@ -27,12 +28,14 @@
      sub-grep = grep --recurse-submodules
      sub-diff = diff --submodule=diff
      sub-status = submodule foreach git status
+     sub-pull = pull --recurse-submodules
 
 [push]
      default = simple
 
 [core]
      pager = delta
+	compression = 0
 
 [status]
      submoduleSummary = true
@@ -50,3 +53,9 @@
 
 [diff]
     colorMoved = default
+
+# [commit]
+#  	gpgsign = true
+
+[cola]
+	spellcheck = false

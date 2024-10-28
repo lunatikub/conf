@@ -1,0 +1,13 @@
+% worktree
+
+# add worktree
+z_worktree ADD <repo> <name>
+
+# list worktree
+z_worktree LIST <repo>
+
+# remove worktree
+z_worktree REMOVE <worktree>
+
+$ repo: ls ~/ledger/core/ | tr ' ' '\n' ---
+$ worktree: git worktree list | grep -v "core/" | cut -d' ' -f1 | tr ' ' '\n' ---

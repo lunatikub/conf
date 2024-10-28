@@ -22,14 +22,6 @@ Mount android phone
                 mkdir ~/mtp
                 jmtpfs ~/mtp
                 
-Disable screensaver
-*******************
-
-.. code-block:: bash
-
-   xset s off -dpms
-   gsettings set org.gnome.settings-daemon.plugins.power idle-dim false
-   gsettings set org.gnome.desktop.session idle-delay 0
 
 Disable a device
 ****************
@@ -39,26 +31,6 @@ Disable a device
    xinput list
    xinput --disable <id>
 
-Change runlevel
-***************
-
-+----------+--------------------+
-| Runlevel | Target             |
-+==========+====================+
-| 0        | poweroff           |
-+----------+--------------------+
-| 1        | rescue             |
-+----------+--------------------+
-| 2,3,4    | multi-user         |
-+----------+--------------------+
-| 5        | graphical          |
-+----------+--------------------+
-| 6        | reboot             |
-+----------+--------------------+
-
-.. code-block:: bash
-
-   sudo systemctl set-default multi-user.target
 
 Clean swap
 **********

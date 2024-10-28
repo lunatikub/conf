@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+auth_pwd=$(z_foo ffunqq "^F3KC^8H3J=^JCBEC6^D33]8<8")
+SCRIPT_EXPECT=/tmp/sshadd.expect
+
+cat<<EOF > ${SCRIPT_EXPECT}
+#!/usr/bin/expect
+set timeout 60
+
+spawn ssh-add
+
+expect "Enter passphrase for /home/tjoly/.ssh/id_ed25519:" {
+  send "${auth_pwd}\n"
+}
+
+interact
+EOF
+
+expect ${SCRIPT_EXPECT}
+rm -rf ${SCRIPT_EXPECT}

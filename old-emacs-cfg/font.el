@@ -12,5 +12,10 @@
   (set-face-attribute 'default nil :height size))
 
 
-(set-frame-font 'default "-CTDB-Fira Code-light-normal-normal-*-16-*-*-*-m-0-iso10646-1")
+;; Fira
+;; (set-frame-font 'default "-CTDB-Fira Code-light-normal-normal-*-16-*-*-*-m-0-iso10646-1")
+;; (set-font-size 140)
+
+;; JetBrains
+(set-frame-font 'default "-JB-JetBrains Mono-*-normal-normal-*-16-*-*-*-m-0-iso10646-1")
 (set-font-size 140)

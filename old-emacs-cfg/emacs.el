@@ -1,7 +1,7 @@
 ;; .emacs
 ;; (load "/home/tjoly/git/conf/emacs/emacs.el")
 
-(defconst emacs-d "/home/tjoly/git/conf/emacs.d/")
+(defconst emacs-d "/home/tjoly/ledger/conf/emacs.d/")
 
 (setq user-emacs-directory emacs-d)
 
@@ -12,6 +12,13 @@
 
 ;; Working
 (global-set-key [(control c) (w)] 'delete-trailing-whitespace)
+
+;;
+;; Close all buffers
+;;
+(defun close-all-buffers ()
+  (interactive)
+  (mapc 'kill-buffer (buffer-list)))
 
 ;;
 ;; Compile
@@ -283,15 +290,16 @@
 (defconst lib
   (list
    "extensions"
+   "docker"
+   "c"
+   "markdown"
    "font"
    "cmake"))
 
-;;    "c"
 ;;    "cachefile"
 ;;    "company"
 ;;    "dot"
 ;;    "go"
-;;    "markdown"
 ;;    "meson"
 ;;    "xcscope"
 ;;    "yaml"))
@@ -299,4 +307,9 @@
 (mapcar
  (lambda (name) (load (concat emacs-d name ".el")))
  lib)
+
+
+(add-to-list 'default-frame-alist '(foreground-color . "#E0DFDB"))
+(add-to-list 'default-frame-alist '(background-color . "#102372"))
+
 

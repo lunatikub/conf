@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+emacs --quick \
+      --no-init-file \
+      -l ~/git/conf/old-emacs-cfg/emacs.el

@@ -11,6 +11,22 @@ static const char *dmenu_cmd[] = {
   NULL
 };
 
+static char *up_gamma[] = {
+    "z_gamma", "up", NULL
+};
+
+static char *down_gamma[] = {
+    "z_gamma", "down", NULL
+};
+
+static char *up_volume[] = {
+  "z_volume", "up", NULL
+};
+
+static char *down_volume[] = {
+  "z_volume", "down", NULL
+};
+
 static char *term_cmd[]  = {
   "xterm",
   "-fa",
@@ -35,11 +51,7 @@ static char *emacsclient_cmd[] = {
 };
 
 static char *emacs_cmd[] = {
-  "emacs",
-  "--quick",
-  "--no-init-file",
-  "-l",
-  "~/git/conf/emacs.d/emacs.el",
+  "z_emacs_ligth",
   NULL,
 };
 

@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+regexp=(
+    "#*"
+    "*.gcda"
+    ".#*"
+)
+
+for r in ${regexp[*]}
+do
+    echo "====> clean $r"
+    for f in $(find . -name "$r")
+    do
+        echo " + $f: deleted"
+        rm $f
+    done
+done

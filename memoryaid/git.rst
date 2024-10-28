@@ -1,9 +1,33 @@
+.. _git:
+
 ***
 git
 ***
 
-Configuration
-*************
+.. code-block:: shell-session
+
+                sudo apt install git
+                cp config/gitconfig ~/.gitconfig
+
+Worktree
+========
+
+.. code-block:: bash
+
+                git worktree add -b <new-branch> <path_repo> <start-branch>
+                git worktree list --verbose
+                git worktree remove <path_repo>
+                git worktree prune
+
+Delta
+=====
+
+Syntax-highlighting pager for git, diff and grep output.
+
+https://github.com/dandavison/delta
+
+Paing
+=============
 
 Tell 'less' not to paginate if less than a page:
 
@@ -12,7 +36,7 @@ Tell 'less' not to paginate if less than a page:
                 export LESS*"-F -X $LESS"
 
 Commands
-********
+========
 
 .. code-block:: bash
 
@@ -33,7 +57,7 @@ Commands
 
 
 Sub-modules alias
-*****************
+=================
 
 .. code-block:: bash
 

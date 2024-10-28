@@ -1,0 +1,9 @@
+% code
+
+# find structure declaration
+rg --type-add 'c:*.c' --type-add 'h:*.h' --type c "^struct\s*<name> "
+rg --type-add 'c:*.c' --type-add 'h:*.h' --type c "^enum\s*<name> "
+rg --type-add 'c:*.c' --type-add 'h:*.h' --type c "^}\s*<name>"
+rg --type-add 'c:*.c' --type-add 'h:*.h' --type c "^typedef\s*struct .*<name>;$"
+rg --type-add 'c:*.c' --type-add 'h:*.h' --type c "^typedef\s*enum .*<name>;$"
+

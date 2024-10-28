@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+
+set -e
+
+AMIXER=$(which amixer)
+THRESHOLD=5
+
+volume_get() {
+    ${AMIXER} sget Master |
+        awk -F"[][]" '/Left:/ { print $2 }' |
+        cut -d'%' -f1
+}
+
+volume_up() {
+    ${AMIXER} set Master ${THRESHOLD}%+
+    vol=$(volume_get)
+    z_notify "Volume" "+++++ Volume ${vol}% +++++" ${vol} 1
+}
+
+volume_down() {
+    ${AMIXER} set Master ${THRESHOLD}%-
+    vol=$(volume_get)
+    z_notify "Volume" "----- Volume ${vol}% -----" ${vol} 1
+}
+
+
+if [ "$1" == "up" ]; then
+    volume_up
+elif [ "$1" == "down" ]; then
+    volume_down
+elif [ "$1" == "get" ]; then
+    volume_get
+fi

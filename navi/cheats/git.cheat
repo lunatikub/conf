@@ -1,0 +1,31 @@
+% git
+
+# Add all tracked files, amend commit and push with lease
+git add -u
+git commit --amend --no-edit
+git push --force-with-lease
+
+# Back to default branch and pull
+default_branch=$(git symbolic-ref refs/remotes/origin/HEAD | sed 's@.*/@@')
+git checkout ${default_branch}
+git pull
+
+# Reset hard origin on default branch
+default_branch=$(git symbolic-ref refs/remotes/origin/HEAD | sed 's@.*/@@')
+git reset --hard origin/${default_branch}
+
+# Update all submodules
+git submodule update --init --recursive
+
+# Push upstream
+branch_name=$(git rev-parse --abbrev-ref HEAD)
+echo "branch_name: ${branch_name}"
+git push --set-upstream origin ${branch_name}
+
+# Remove local branch
+git branch -d <branch>
+
+# Remove remote branch
+git push origin -d <branch>
+
+$ branch: git branch -a

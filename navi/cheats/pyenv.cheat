@@ -1,0 +1,19 @@
+% pyenv
+
+# Create virtual env
+pyenv virtualenv <version> <name>
+
+# Remove virtual env
+pyenv uninstall <venv>
+
+# Set virtual env
+pyenv <type> <venv> 
+
+# Install requirements.txt
+pip install --upgrade pip
+pip install -r requirements.txt
+
+$ type: echo "local shell" | tr ' ' '\n' ---
+$ venv: pyenv versions --skip-envs --bare
+$ version: pyenv versions --bare --skip-envs --skip-aliases
+

@@ -1,34 +1,31 @@
+.. _emacs:
+
 *****
 emacs
 *****
 
-LSP
-***
+.. code-block:: shell-session
 
-Create file **compile_commands.json** for LSP mode
+   sudo apt install emacs
 
-.. code-block:: bash
+Doom
+====
 
-   bear -- make # ...
+https://github.com/doomemacs/doomemacs
 
-Projectile
-**********
+.. code:: bash
 
-.. code-block:: lisp
+   # install
+   URL="https://github.com/doomemacs/doomemacs"
+   git clone --depth 1 $URL  ~/.config/emacs
+   ~/.config/emacs/bin/doom install
 
-   ;; run one time
-   (projectile-discover-projects-in-search-path)
+Custom **doom** files location: https://github.com/lunatikub/conf/tree/master/doom.d
 
-Shortcuts
-*********
+.. note::
 
-+--------------------------------------------+
-| Projectile                                 |
-+=============+==============================+
-| C-c p p     | Open a project               |
-+-------------+------------------------------+
-| C-c p f     | Open a file into a project   |
-+-------------+------------------------------+
+   # ~/.zhsrc
+   alias doom="~/.config/emacs/bin/doom"
 
 +--------------------------------------------+
 | Doom                                       |
@@ -42,59 +39,22 @@ Shortcuts
 | C-c v g     | Magit                        |
 +-------------+------------------------------+
 
-+-------------+------------------------------+
-| Windows                                    |
-+=============+==============================+
-| M-left      | Move to left window          |
-+-------------+------------------------------+
-| M-right     | Move to right window         |
-+-------------+------------------------------+
-| M-up        | Move to up window            |
-+-------------+------------------------------+
-| M-down      | Move to down window          |
-+-------------+------------------------------+
+JetBrains Font
+==============
 
+Download: https://www.jetbrains.com/lp/mono/
 
-+-------------+------------------------------+
-| Dev                                        |
-+=============+==============================+
-| M-c         | Recenter the current buffer  |
-+-------------+------------------------------+
-| M-d         | Delete trailing whitespace   |
-+-------------+------------------------------+
-| M-e         | rg search                    |
-+-------------+------------------------------+
-| M-g         | Goto to line                 |
-+-------------+------------------------------+
-| C-a         | Select the entire buffer     |
-+-------------+------------------------------+
-| C-b         | Build command                |
-+-------------+------------------------------+
-| C-f         | Search forward regexp        |
-+-------------+------------------------------+
-| C-r         | Query replace regexp         |
-+-------------+------------------------------+
-| C-c a       | Align current region         |
-+-------------+------------------------------+
-| C-c h       | Switch .c to .h              |
-+-------------+------------------------------+
-| C-h c       | Switch .h to .c              |
-+-------------+------------------------------+
-| C-home      | Beginning of the buffer      |
-+-------------+------------------------------+
-| C-end       | End of the buffer            |
-+-------------+------------------------------+
-| C-x k       | Kill the buffer              |
-+-------------+------------------------------+
+.. code-block:: shell-session
 
-+-------------+------------------------------+
-| Lsp                                        |
-+=============+==============================+
-| C-v d       | Find definition              |
-+-------------+------------------------------+
-| C-v e       | Find declaration             |
-+-------------+------------------------------+
-| C-v r       | Find references              |
-+-------------+------------------------------+
-| C-v f       | Format buffer                |
-+-------------+------------------------------+
+   $ cp ~/Downloads/JetBrainsMono-2.304.zip ~/.local/share/fonts
+   $ cd ~/.local/share/fonts
+   $ unzip JetBrainsMono-2.304.zip
+   $ fc-cache -f -v
+
+.. code-block:: emacs-lisp
+
+   ;; JetBrains dooms
+   (setq doom-font (font-spec :family "JetBrains Mono" :size 16)
+   doom-variable-pitch-font (font-spec :family "Ubuntu" :size 15)
+   doom-big-font (font-spec :family "JetBrains Mono" :size 24)) 
+

@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+TITLE=$1
+TEXT=$2
+PER=$3
+TIME=$4
+
+info() {
+    (
+        sleep ${TIME}
+        echo "100"
+    ) |
+        zenity --progress \
+               --no-cancel \
+               --auto-close \
+               --text="${TEXT}" \
+               --title="${TITLE}" \
+               --percentage=${PER}
+}
+
+info &
+sleep ${TIME}
+pkill zenity
