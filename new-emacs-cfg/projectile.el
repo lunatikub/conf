@@ -20,3 +20,12 @@
 (global-set-key [(control s) (f)] 'projectile-find-file)
 (global-set-key [(control s) (p)] 'projectile-switch-project)
 (global-set-key [(control s) (c)] 'projectile-cleanup-known-projects)
+(global-set-key [(control s) (b)] 'projectile-compile-project)
+(global-set-key [(control s) (n)] 'next-error)
+(global-set-key [(control s) (m)] 'previous-error)
+
+(setq projectile-project-compilation-cmd "make -C build -j")
+
+(setq projectile-mode-line
+      '(:eval (format " Projectile[%s(%s)]"
+                      (projectile-project-name))))

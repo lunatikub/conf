@@ -62,3 +62,18 @@
 (global-set-key [(control v) (r)] 'lsp-find-references)
 (global-set-key [(control v) (f)] 'lsp-format-buffer)
 (global-set-key [(control v) (g)] 'lsp-format-region)
+
+;; disable top bar with file path
+(setq lsp-headerline-breadcrumb-enable nil)
+
+;; Configuration pour ouvrir le buffer de compilation en bas
+(setq display-buffer-alist
+      '(("\\*xref\\*"
+         (display-buffer-reuse-window
+          display-buffer-in-side-window)
+         (side . bottom)
+         (slot . 1)
+         (window-height . 0.3))))
+
+;; Activer lsp-semantic-tokens-mode par défaut pour les modes supportés
+(add-hook 'lsp-mode-hook #'lsp-semantic-tokens-mode)

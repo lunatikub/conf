@@ -68,8 +68,8 @@
 
 (setq column-number-mode t)             ; display of the columns
 (setq mouse-wheel-follow-mouse t)       ; La molette affecte le buffer sous la souris
-(setq tab-width 2)                      ; tab = 2 spaces
-(setq standard-indent 2)
+(setq tab-width 4)                      ; tab = 2 spaces
+(setq standard-indent 4)
 (transient-mark-mode 1)                 ; Hilight de la region selectionne au clavier
 (setq visible-bell t)                   ; Pour etre sur de ne pas beeper
 (setq show-paren-face 'modeline)        ; option pour l'affichage des parentheses
@@ -79,3 +79,14 @@
 
 (show-paren-mode t)                     ; match parenthesis
 (setq-default indent-tabs-mode nil)     ; don't use fucking tabs to indent
+
+;; (setq-default indent-tabs-mode nil)
+;; (setq-default tab-width 4)
+;; (setq indent-line-function 'insert-tab)
+(setq c-basic-offset 4)
+(setq-default indent-tabs-mode nil)
+
+(custom-set-variables
+
+ '(tab-stop-list (quote (4 8 12)))
+ '(tab-width 4))

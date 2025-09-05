@@ -77,3 +77,52 @@
       (delete-file filename nil) ; no trash
       (message (concat "File " filename " succesfully removed."))
       )))
+
+
+
+
+
+
+;; Charger le package ansi-color
+(require 'ansi-color)
+
+;; Appliquer les couleurs ANSI au buffer de compilation
+(defun my-apply-ansi-color-to-compilation-buffer ()
+  (ansi-color-apply-on-region compilation-filter-start (point)))
+
+(add-hook 'compilation-filter-hook 'my-apply-ansi-color-to-compilation-buffer)
+
+;; Configuration pour ouvrir le buffer de compilation en bas
+(setq display-buffer-alist
+      '(("\\*compilation\\*"
+         (display-buffer-reuse-window
+          display-buffer-in-side-window)
+         (side . bottom)
+         (slot . 1)
+         (window-height . 0.3))))
+
+;; Activer le défilement automatique du buffer de compilation
+(setq compilation-scroll-output t)
+
+;; Redéfinir les raccourcis clavier pour naviguer entre les erreurs
+(defun my-compilation-mode-keybindings ()
+  "Custom keybindings for compilation mode."
+  (define-key compilation-mode-map (kbd "C-s n") 'next-error)
+  (define-key compilation-mode-map (kbd "C-s p") 'previous-error))
+
+(add-hook 'compilation-mode-hook 'my-compilation-mode-keybindings)
+
+;; Optionnel : Redéfinir la commande de compilation pour utiliser cette configuration
+(defun my-compilation-mode-setup ()
+  "Custom setup for compilation mode."
+  (setq display-buffer-alist
+        '(("\\*compilation\\*"
+           (display-buffer-reuse-window
+            display-buffer-in-side-window)
+           (side . bottom)
+           (slot . 1)
+           (window-height . 0.3)))))
+
+(add-hook 'compilation-mode-hook 'my-compilation-mode-setup)
+
+

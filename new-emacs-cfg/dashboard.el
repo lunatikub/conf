@@ -9,7 +9,7 @@
 (unless (package-installed-p 'dashboard)
   (package-install 'dashboard))
 
-;; Getting pretty icons 
+;; Getting pretty icons
 (use-package all-the-icons)
 
 (use-package dashboard
@@ -18,13 +18,13 @@
   (dashboard-setup-startup-hook)
   (setq dashboard-banner-logo-title "Welcome TJO !"
 	; dashboard-startup-banner 'logo
-        dashboard-startup-banner "~/ledger/conf/new-emacs/sangoku.jpeg"
+        dashboard-startup-banner "~/ledger/images/sangoku.jpeg"
         dashboard-projects-backend 'projectile
 	dashboard-center-content t
 	dashboard-set-heading-icons t
 	dashboard-set-file-icons t
-	dashboard-items '((projects . 10)
-			  (recents . 10))))
+	dashboard-items '((projects . 5)
+			  (recents . 5))))
 
 ;; for emacsclient
 (setq initial-buffer-choice (lambda () (get-buffer-create dashboard-buffer-name)))
