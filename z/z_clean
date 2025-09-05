@@ -4,6 +4,7 @@ regexp=(
     "#*"
     "*.gcda"
     ".#*"
+    "__pycache__"
 )
 
 for r in ${regexp[*]}
@@ -12,6 +13,6 @@ do
     for f in $(find . -name "$r")
     do
         echo " + $f: deleted"
-        rm $f
+        rm -rf $f
     done
 done

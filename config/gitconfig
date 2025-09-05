@@ -1,7 +1,7 @@
 [user]
 	name = Thomas Joly
 	email = thomas.joly@ledger.fr
-	signingkey = 8F9796D2E257D1BCF4950BE2DDA2AF97C2C213B4
+	signingkey = 9C50A0728DE6A0A3
 
 [branch]
 	autosetuprebase = always
@@ -54,8 +54,8 @@
 [diff]
     colorMoved = default
 
-# [commit]
-#  	gpgsign = true
+[commit]
+  	gpgsign = true
 
 [cola]
 	spellcheck = false

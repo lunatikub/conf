@@ -90,14 +90,11 @@ source $ZSH/oh-my-zsh.sh
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
-EMACS_LIGHT_CMD="emacs --no-init-file -l ~/ledger/conf/emacs.d/emacs.el"
 
 # Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR="$EMACS_LIGHT_CMD"
-else
-  export EDITOR="$EMACS_LIGHT_CMD"
-fi
+# if [[ -n $SSH_CONNECTION ]]; then
+#export EDITOR="emacs"
+# fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -112,8 +109,7 @@ fi
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # Aliases
-alias emacs_c="emacsclient --create-frame"
-alias e="$EMACS_LIGHT_CMD"
+alias e="emacsclient --create-frame"
 
 # Ctrl -> <-
 bindkey '^[[1;5D' backward-word
@@ -122,11 +118,6 @@ bindkey '^H' backward-kill-word
 bindkey '^[[3^' kill-word
 bindkey '^[[7~' beginning-of-line
 bindkey '^[[8~' end-of-line
-
-# pyenv
-# export PATH="$HOME/.pyenv/bin:$PATH"
-# eval "$(pyenv init -)"
-# eval "$(pyenv virtualenv-init -)"
 
 export PATH="$HOME/.local/bin:$PATH:/home/tjoly/.cargo/bin" # pip binaries
 export PATH="$PATH:$HOME/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/bin/"
@@ -137,7 +128,7 @@ export LESS="-F -X $LESS"
 export MAKEFLAGS=--no-print-directory
 
 # Add custom scripts
-export PATH=/home/tjoly/ledger/r_tjo/:/home/tjoly/ledger/conf/z/:${PATH}
+export PATH=/home/tjoly/ledger/conf/z/:${PATH}
 
 # autocompletion
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#ffffff,bg=cyan,bold,underline"
@@ -146,3 +137,16 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#ffffff,bg=cyan,bold,underline"
 eval "$(navi widget zsh)"
 
 eval "$(zoxide init zsh)"
+
+# proto
+export PROTO_HOME="$HOME/.proto";
+export PATH="$PROTO_HOME/shims:$PROTO_HOME/bin:$PATH";
+
+# pyenv
+export PATH="$HOME/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
+export GPG_TTY=$(tty)
+
+fpath+=~/.zfunc; autoload -Uz compinit; compinit

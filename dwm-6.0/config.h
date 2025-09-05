@@ -38,7 +38,6 @@ static Key keys[] = {
   { MODKEY,                       XK_c,      spawn,          {.v = term_cmd } },
   { MODKEY,                       XK_v,      spawn,          {.v = term_cmd_invert } },
   { MODKEY,                       XK_e,      spawn,          {.v = emacsclient_cmd } },
-  { MODKEY,                       XK_w,      spawn,          {.v = emacs_cmd } },
   { MODKEY,                       XK_l,      spawn,          {.v = xsecurelock } },
   { MODKEY,                       XK_F6,     spawn,          {.v = up_gamma } },
   { MODKEY,                       XK_F5,     spawn,          {.v = down_gamma } },

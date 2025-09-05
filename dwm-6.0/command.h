@@ -50,11 +50,6 @@ static char *emacsclient_cmd[] = {
   NULL,
 };
 
-static char *emacs_cmd[] = {
-  "z_emacs_ligth",
-  NULL,
-};
-
 static char *xsecurelock[] = {
   "xsecurelock",
   NULL,
